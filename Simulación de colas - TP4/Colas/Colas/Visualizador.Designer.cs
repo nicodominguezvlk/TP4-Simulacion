@@ -37,7 +37,7 @@
             this.grdCorrectiva = new System.Windows.Forms.DataGridView();
             this.btnObjetosTemporales = new System.Windows.Forms.Button();
             this.lblVectorEstado = new System.Windows.Forms.Label();
-            this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,7 +108,7 @@
             this.colaComidaMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoControlComidaMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metrospromedioaparcamiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AcumuladorTiempoColaParking = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acumuladorTiempoColaParking = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantPromAutosColaPark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contGruposCajaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acumuladorTiempoColaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,28 +131,25 @@
             this.pnlTitulo.Controls.Add(this.lblTitulo);
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
-            this.pnlTitulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(1946, 138);
+            this.pnlTitulo.Size = new System.Drawing.Size(1080, 90);
             this.pnlTitulo.TabIndex = 3;
             // 
             // imgArrow
             // 
             this.imgArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgArrow.Location = new System.Drawing.Point(1812, 32);
-            this.imgArrow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.imgArrow.Location = new System.Drawing.Point(1208, 21);
             this.imgArrow.Name = "imgArrow";
-            this.imgArrow.Size = new System.Drawing.Size(75, 77);
+            this.imgArrow.Size = new System.Drawing.Size(50, 50);
             this.imgArrow.TabIndex = 2;
             this.imgArrow.TabStop = false;
             // 
             // imgX
             // 
             this.imgX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgX.Location = new System.Drawing.Point(1917, 32);
-            this.imgX.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.imgX.Location = new System.Drawing.Point(1278, 21);
             this.imgX.Name = "imgX";
-            this.imgX.Size = new System.Drawing.Size(75, 77);
+            this.imgX.Size = new System.Drawing.Size(50, 50);
             this.imgX.TabIndex = 1;
             this.imgX.TabStop = false;
             // 
@@ -161,10 +158,9 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft JhengHei Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(18, 23);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(12, 15);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(432, 91);
+            this.lblTitulo.Size = new System.Drawing.Size(290, 61);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Visualizador";
             // 
@@ -185,7 +181,7 @@
             this.grdCorrectiva.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdCorrectiva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCorrectiva.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Evento,
+            this.evento,
             this.reloj,
             this.rndLlegada,
             this.tiempoLlegada,
@@ -256,7 +252,7 @@
             this.colaComidaMayores,
             this.estadoControlComidaMayores,
             this.metrospromedioaparcamiento,
-            this.AcumuladorTiempoColaParking,
+            this.acumuladorTiempoColaParking,
             this.cantPromAutosColaPark,
             this.contGruposCajaEntrada,
             this.acumuladorTiempoColaEntrada,
@@ -274,12 +270,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdCorrectiva.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdCorrectiva.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.grdCorrectiva.Location = new System.Drawing.Point(9, 205);
-            this.grdCorrectiva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grdCorrectiva.Location = new System.Drawing.Point(-112, 131);
             this.grdCorrectiva.Name = "grdCorrectiva";
             this.grdCorrectiva.ReadOnly = true;
             this.grdCorrectiva.RowHeadersWidth = 51;
-            this.grdCorrectiva.Size = new System.Drawing.Size(1974, 760);
+            this.grdCorrectiva.Size = new System.Drawing.Size(1316, 494);
             this.grdCorrectiva.TabIndex = 4;
             // 
             // btnObjetosTemporales
@@ -289,10 +284,9 @@
             this.btnObjetosTemporales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnObjetosTemporales.Font = new System.Drawing.Font("Microsoft Tai Le", 18F);
             this.btnObjetosTemporales.ForeColor = System.Drawing.Color.White;
-            this.btnObjetosTemporales.Location = new System.Drawing.Point(825, 974);
-            this.btnObjetosTemporales.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnObjetosTemporales.Location = new System.Drawing.Point(550, 633);
             this.btnObjetosTemporales.Name = "btnObjetosTemporales";
-            this.btnObjetosTemporales.Size = new System.Drawing.Size(1062, 60);
+            this.btnObjetosTemporales.Size = new System.Drawing.Size(708, 39);
             this.btnObjetosTemporales.TabIndex = 8;
             this.btnObjetosTemporales.Text = "Ver objetos temporales";
             this.btnObjetosTemporales.UseVisualStyleBackColor = false;
@@ -302,22 +296,18 @@
             this.lblVectorEstado.AutoSize = true;
             this.lblVectorEstado.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVectorEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblVectorEstado.Location = new System.Drawing.Point(795, 143);
-            this.lblVectorEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVectorEstado.Location = new System.Drawing.Point(530, 93);
             this.lblVectorEstado.Name = "lblVectorEstado";
-            this.lblVectorEstado.Size = new System.Drawing.Size(290, 50);
+            this.lblVectorEstado.Size = new System.Drawing.Size(195, 35);
             this.lblVectorEstado.TabIndex = 9;
             this.lblVectorEstado.Text = "Vector Estado";
             // 
-            // Evento
+            // evento
             // 
-            this.Evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Evento.DataPropertyName = "evento";
-            this.Evento.HeaderText = "Evento";
-            this.Evento.MinimumWidth = 6;
-            this.Evento.Name = "Evento";
-            this.Evento.ReadOnly = true;
-            this.Evento.Width = 122;
+            this.evento.DataPropertyName = "evento";
+            this.evento.HeaderText = "Evento";
+            this.evento.Name = "evento";
+            this.evento.ReadOnly = true;
             // 
             // reloj
             // 
@@ -944,14 +934,12 @@
             this.metrospromedioaparcamiento.Name = "metrospromedioaparcamiento";
             this.metrospromedioaparcamiento.ReadOnly = true;
             // 
-            // AcumuladorTiempoColaParking
+            // acumuladorTiempoColaParking
             // 
-            this.AcumuladorTiempoColaParking.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.AcumuladorTiempoColaParking.DataPropertyName = "AcumuladorTiempoColaParking";
-            this.AcumuladorTiempoColaParking.HeaderText = "AC tiempo ColaParking";
-            this.AcumuladorTiempoColaParking.MinimumWidth = 8;
-            this.AcumuladorTiempoColaParking.Name = "AcumuladorTiempoColaParking";
-            this.AcumuladorTiempoColaParking.ReadOnly = true;
+            this.acumuladorTiempoColaParking.DataPropertyName = "acumuladorTiempoColaParking";
+            this.acumuladorTiempoColaParking.HeaderText = "AC Tiempo ColaParking";
+            this.acumuladorTiempoColaParking.Name = "acumuladorTiempoColaParking";
+            this.acumuladorTiempoColaParking.ReadOnly = true;
             // 
             // cantPromAutosColaPark
             // 
@@ -1027,15 +1015,14 @@
             // 
             // Visualizador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1946, 1062);
+            this.ClientSize = new System.Drawing.Size(1080, 598);
             this.Controls.Add(this.lblVectorEstado);
             this.Controls.Add(this.btnObjetosTemporales);
             this.Controls.Add(this.grdCorrectiva);
             this.Controls.Add(this.pnlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Visualizador";
             this.Text = "Form1";
             this.pnlTitulo.ResumeLayout(false);
@@ -1057,7 +1044,7 @@
         public System.Windows.Forms.DataGridView grdCorrectiva;
         private System.Windows.Forms.Button btnObjetosTemporales;
         private System.Windows.Forms.Label lblVectorEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndLlegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoLlegada;
@@ -1128,7 +1115,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colaComidaMayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoControlComidaMayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn metrospromedioaparcamiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcumuladorTiempoColaParking;
+        private System.Windows.Forms.DataGridViewTextBoxColumn acumuladorTiempoColaParking;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantPromAutosColaPark;
         private System.Windows.Forms.DataGridViewTextBoxColumn contGruposCajaEntrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn acumuladorTiempoColaEntrada;
