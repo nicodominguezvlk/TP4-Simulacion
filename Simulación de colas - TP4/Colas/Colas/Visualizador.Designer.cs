@@ -35,23 +35,27 @@
             this.imgX = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grdCorrectiva = new System.Windows.Forms.DataGridView();
-            this.jornada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dia_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dia_averia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_arreglo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_acum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_prom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cant_averias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_promedio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uso_max = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnObjetosTemporales = new System.Windows.Forms.Button();
             this.lblVectorEstado = new System.Windows.Forms.Label();
+            this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximaLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndFinAtencionParking = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoFinAtencionParking = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionParking1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionParking2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionParking3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionParking4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionParking5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndFinAtencionEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoFinAtencionEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionEntrada1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionEntrada2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionEntrada3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionEntrada4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionEntrada5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proximoFinAtencionEntrada6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).BeginInit();
@@ -116,21 +120,25 @@
             this.grdCorrectiva.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdCorrectiva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCorrectiva.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.jornada,
-            this.rnd1,
-            this.rnd2,
-            this.uso,
-            this.rnd3,
-            this.dia_revision,
-            this.dia_averia,
-            this.costo_arreglo,
-            this.costo_revision,
-            this.costo_total,
-            this.costo_acum,
-            this.costo_prom,
-            this.cant_averias,
-            this.tiempo_promedio,
-            this.uso_max});
+            this.Evento,
+            this.rndLlegada,
+            this.tiempoLlegada,
+            this.proximaLlegada,
+            this.rndFinAtencionParking,
+            this.tiempoFinAtencionParking,
+            this.proximoFinAtencionParking1,
+            this.proximoFinAtencionParking2,
+            this.proximoFinAtencionParking3,
+            this.proximoFinAtencionParking4,
+            this.proximoFinAtencionParking5,
+            this.rndFinAtencionEntrada,
+            this.tiempoFinAtencionEntrada,
+            this.proximoFinAtencionEntrada1,
+            this.proximoFinAtencionEntrada2,
+            this.proximoFinAtencionEntrada3,
+            this.proximoFinAtencionEntrada4,
+            this.proximoFinAtencionEntrada5,
+            this.proximoFinAtencionEntrada6});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
@@ -146,141 +154,6 @@
             this.grdCorrectiva.RowHeadersWidth = 51;
             this.grdCorrectiva.Size = new System.Drawing.Size(1316, 494);
             this.grdCorrectiva.TabIndex = 4;
-            // 
-            // jornada
-            // 
-            this.jornada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.jornada.DataPropertyName = "jornada";
-            this.jornada.HeaderText = "Jornada";
-            this.jornada.MinimumWidth = 6;
-            this.jornada.Name = "jornada";
-            this.jornada.ReadOnly = true;
-            // 
-            // rnd1
-            // 
-            this.rnd1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rnd1.DataPropertyName = "rnd1";
-            this.rnd1.HeaderText = "RND1hs";
-            this.rnd1.MinimumWidth = 6;
-            this.rnd1.Name = "rnd1";
-            this.rnd1.ReadOnly = true;
-            // 
-            // rnd2
-            // 
-            this.rnd2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rnd2.DataPropertyName = "rnd2";
-            this.rnd2.HeaderText = "RND2hs";
-            this.rnd2.MinimumWidth = 6;
-            this.rnd2.Name = "rnd2";
-            this.rnd2.ReadOnly = true;
-            // 
-            // uso
-            // 
-            this.uso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.uso.DataPropertyName = "uso";
-            this.uso.HeaderText = "Horas de Uso";
-            this.uso.MinimumWidth = 6;
-            this.uso.Name = "uso";
-            this.uso.ReadOnly = true;
-            // 
-            // rnd3
-            // 
-            this.rnd3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rnd3.DataPropertyName = "rnd3";
-            this.rnd3.HeaderText = "RNDAvería";
-            this.rnd3.MinimumWidth = 6;
-            this.rnd3.Name = "rnd3";
-            this.rnd3.ReadOnly = true;
-            // 
-            // dia_revision
-            // 
-            this.dia_revision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dia_revision.DataPropertyName = "dia_revision";
-            this.dia_revision.HeaderText = "Día Revisión";
-            this.dia_revision.MinimumWidth = 6;
-            this.dia_revision.Name = "dia_revision";
-            this.dia_revision.ReadOnly = true;
-            // 
-            // dia_averia
-            // 
-            this.dia_averia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dia_averia.DataPropertyName = "dia_averia";
-            this.dia_averia.HeaderText = "Día Avería";
-            this.dia_averia.MinimumWidth = 6;
-            this.dia_averia.Name = "dia_averia";
-            this.dia_averia.ReadOnly = true;
-            // 
-            // costo_arreglo
-            // 
-            this.costo_arreglo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.costo_arreglo.DataPropertyName = "costo_arreglo";
-            this.costo_arreglo.HeaderText = "Costo Arreglo";
-            this.costo_arreglo.MinimumWidth = 6;
-            this.costo_arreglo.Name = "costo_arreglo";
-            this.costo_arreglo.ReadOnly = true;
-            // 
-            // costo_revision
-            // 
-            this.costo_revision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.costo_revision.DataPropertyName = "costo_revision";
-            this.costo_revision.HeaderText = "Costo Revisión";
-            this.costo_revision.MinimumWidth = 6;
-            this.costo_revision.Name = "costo_revision";
-            this.costo_revision.ReadOnly = true;
-            // 
-            // costo_total
-            // 
-            this.costo_total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.costo_total.DataPropertyName = "costo_total";
-            this.costo_total.HeaderText = "Costo Total";
-            this.costo_total.MinimumWidth = 6;
-            this.costo_total.Name = "costo_total";
-            this.costo_total.ReadOnly = true;
-            // 
-            // costo_acum
-            // 
-            this.costo_acum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.costo_acum.DataPropertyName = "costo_acum";
-            this.costo_acum.HeaderText = "Costo Acum.";
-            this.costo_acum.MinimumWidth = 6;
-            this.costo_acum.Name = "costo_acum";
-            this.costo_acum.ReadOnly = true;
-            // 
-            // costo_prom
-            // 
-            this.costo_prom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.costo_prom.DataPropertyName = "costo_prom";
-            this.costo_prom.HeaderText = "Costo Diario Promedio";
-            this.costo_prom.MinimumWidth = 6;
-            this.costo_prom.Name = "costo_prom";
-            this.costo_prom.ReadOnly = true;
-            // 
-            // cant_averias
-            // 
-            this.cant_averias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cant_averias.DataPropertyName = "cant_averias";
-            this.cant_averias.HeaderText = "Cantidad de Averías";
-            this.cant_averias.MinimumWidth = 6;
-            this.cant_averias.Name = "cant_averias";
-            this.cant_averias.ReadOnly = true;
-            // 
-            // tiempo_promedio
-            // 
-            this.tiempo_promedio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tiempo_promedio.DataPropertyName = "tiempo_promedio";
-            this.tiempo_promedio.HeaderText = "Tiempo Promedio de Avería";
-            this.tiempo_promedio.MinimumWidth = 6;
-            this.tiempo_promedio.Name = "tiempo_promedio";
-            this.tiempo_promedio.ReadOnly = true;
-            // 
-            // uso_max
-            // 
-            this.uso_max.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.uso_max.DataPropertyName = "uso_max";
-            this.uso_max.HeaderText = "Uso Máximo";
-            this.uso_max.MinimumWidth = 6;
-            this.uso_max.Name = "uso_max";
-            this.uso_max.ReadOnly = true;
             // 
             // btnObjetosTemporales
             // 
@@ -306,6 +179,165 @@
             this.lblVectorEstado.Size = new System.Drawing.Size(195, 35);
             this.lblVectorEstado.TabIndex = 9;
             this.lblVectorEstado.Text = "Vector Estado";
+            // 
+            // Evento
+            // 
+            this.Evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Evento.DataPropertyName = "evento";
+            this.Evento.HeaderText = "Evento";
+            this.Evento.MinimumWidth = 6;
+            this.Evento.Name = "Evento";
+            this.Evento.ReadOnly = true;
+            // 
+            // rndLlegada
+            // 
+            this.rndLlegada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rndLlegada.DataPropertyName = "rndLlegada";
+            this.rndLlegada.HeaderText = "RND";
+            this.rndLlegada.MinimumWidth = 6;
+            this.rndLlegada.Name = "rndLlegada";
+            this.rndLlegada.ReadOnly = true;
+            // 
+            // tiempoLlegada
+            // 
+            this.tiempoLlegada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiempoLlegada.DataPropertyName = "tiempoLlegada";
+            this.tiempoLlegada.HeaderText = "Tiempo";
+            this.tiempoLlegada.MinimumWidth = 6;
+            this.tiempoLlegada.Name = "tiempoLlegada";
+            this.tiempoLlegada.ReadOnly = true;
+            // 
+            // proximaLlegada
+            // 
+            this.proximaLlegada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximaLlegada.DataPropertyName = "proximaLlegada";
+            this.proximaLlegada.HeaderText = "Próxima";
+            this.proximaLlegada.MinimumWidth = 6;
+            this.proximaLlegada.Name = "proximaLlegada";
+            this.proximaLlegada.ReadOnly = true;
+            // 
+            // rndFinAtencionParking
+            // 
+            this.rndFinAtencionParking.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rndFinAtencionParking.DataPropertyName = "rndFinAtencionParking";
+            this.rndFinAtencionParking.HeaderText = "RND";
+            this.rndFinAtencionParking.MinimumWidth = 6;
+            this.rndFinAtencionParking.Name = "rndFinAtencionParking";
+            this.rndFinAtencionParking.ReadOnly = true;
+            // 
+            // tiempoFinAtencionParking
+            // 
+            this.tiempoFinAtencionParking.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiempoFinAtencionParking.DataPropertyName = "tiempoFinAtencionParking";
+            this.tiempoFinAtencionParking.HeaderText = "Tiempo";
+            this.tiempoFinAtencionParking.MinimumWidth = 6;
+            this.tiempoFinAtencionParking.Name = "tiempoFinAtencionParking";
+            this.tiempoFinAtencionParking.ReadOnly = true;
+            // 
+            // proximoFinAtencionParking1
+            // 
+            this.proximoFinAtencionParking1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximoFinAtencionParking1.DataPropertyName = "proximoFinAtencionParking1";
+            this.proximoFinAtencionParking1.HeaderText = "Próximo1";
+            this.proximoFinAtencionParking1.MinimumWidth = 6;
+            this.proximoFinAtencionParking1.Name = "proximoFinAtencionParking1";
+            this.proximoFinAtencionParking1.ReadOnly = true;
+            // 
+            // proximoFinAtencionParking2
+            // 
+            this.proximoFinAtencionParking2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximoFinAtencionParking2.DataPropertyName = "proximoFinAtencionParking2";
+            this.proximoFinAtencionParking2.HeaderText = "Próximo2";
+            this.proximoFinAtencionParking2.MinimumWidth = 6;
+            this.proximoFinAtencionParking2.Name = "proximoFinAtencionParking2";
+            this.proximoFinAtencionParking2.ReadOnly = true;
+            // 
+            // proximoFinAtencionParking3
+            // 
+            this.proximoFinAtencionParking3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximoFinAtencionParking3.DataPropertyName = "proximoFinAtencionParking3";
+            this.proximoFinAtencionParking3.HeaderText = "Próximo3";
+            this.proximoFinAtencionParking3.MinimumWidth = 6;
+            this.proximoFinAtencionParking3.Name = "proximoFinAtencionParking3";
+            this.proximoFinAtencionParking3.ReadOnly = true;
+            // 
+            // proximoFinAtencionParking4
+            // 
+            this.proximoFinAtencionParking4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximoFinAtencionParking4.DataPropertyName = "proximoFinAtencionParking4";
+            this.proximoFinAtencionParking4.HeaderText = "Próximo4";
+            this.proximoFinAtencionParking4.MinimumWidth = 6;
+            this.proximoFinAtencionParking4.Name = "proximoFinAtencionParking4";
+            this.proximoFinAtencionParking4.ReadOnly = true;
+            // 
+            // proximoFinAtencionParking5
+            // 
+            this.proximoFinAtencionParking5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximoFinAtencionParking5.DataPropertyName = "proximoFinAtencionParking5";
+            this.proximoFinAtencionParking5.HeaderText = "Próximo5";
+            this.proximoFinAtencionParking5.MinimumWidth = 6;
+            this.proximoFinAtencionParking5.Name = "proximoFinAtencionParking5";
+            this.proximoFinAtencionParking5.ReadOnly = true;
+            // 
+            // rndFinAtencionEntrada
+            // 
+            this.rndFinAtencionEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rndFinAtencionEntrada.DataPropertyName = "rndFinAtencionEntrada";
+            this.rndFinAtencionEntrada.HeaderText = "RND";
+            this.rndFinAtencionEntrada.MinimumWidth = 6;
+            this.rndFinAtencionEntrada.Name = "rndFinAtencionEntrada";
+            this.rndFinAtencionEntrada.ReadOnly = true;
+            // 
+            // tiempoFinAtencionEntrada
+            // 
+            this.tiempoFinAtencionEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tiempoFinAtencionEntrada.DataPropertyName = "tiempoFinAtencionEntrada";
+            this.tiempoFinAtencionEntrada.HeaderText = "Tiempo";
+            this.tiempoFinAtencionEntrada.MinimumWidth = 6;
+            this.tiempoFinAtencionEntrada.Name = "tiempoFinAtencionEntrada";
+            this.tiempoFinAtencionEntrada.ReadOnly = true;
+            // 
+            // proximoFinAtencionEntrada1
+            // 
+            this.proximoFinAtencionEntrada1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximoFinAtencionEntrada1.DataPropertyName = "proximoFinAtencionEntrada1";
+            this.proximoFinAtencionEntrada1.HeaderText = "Próximo1";
+            this.proximoFinAtencionEntrada1.MinimumWidth = 6;
+            this.proximoFinAtencionEntrada1.Name = "proximoFinAtencionEntrada1";
+            this.proximoFinAtencionEntrada1.ReadOnly = true;
+            // 
+            // proximoFinAtencionEntrada2
+            // 
+            this.proximoFinAtencionEntrada2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.proximoFinAtencionEntrada2.DataPropertyName = "proximoFinAtencionEntrada2";
+            this.proximoFinAtencionEntrada2.HeaderText = "Próximo2";
+            this.proximoFinAtencionEntrada2.MinimumWidth = 6;
+            this.proximoFinAtencionEntrada2.Name = "proximoFinAtencionEntrada2";
+            this.proximoFinAtencionEntrada2.ReadOnly = true;
+            // 
+            // proximoFinAtencionEntrada3
+            // 
+            this.proximoFinAtencionEntrada3.HeaderText = "Próximo3";
+            this.proximoFinAtencionEntrada3.Name = "proximoFinAtencionEntrada3";
+            this.proximoFinAtencionEntrada3.ReadOnly = true;
+            // 
+            // proximoFinAtencionEntrada4
+            // 
+            this.proximoFinAtencionEntrada4.HeaderText = "Próximo4";
+            this.proximoFinAtencionEntrada4.Name = "proximoFinAtencionEntrada4";
+            this.proximoFinAtencionEntrada4.ReadOnly = true;
+            // 
+            // proximoFinAtencionEntrada5
+            // 
+            this.proximoFinAtencionEntrada5.HeaderText = "Próximo5";
+            this.proximoFinAtencionEntrada5.Name = "proximoFinAtencionEntrada5";
+            this.proximoFinAtencionEntrada5.ReadOnly = true;
+            // 
+            // proximoFinAtencionEntrada6
+            // 
+            this.proximoFinAtencionEntrada6.HeaderText = "Próximo6";
+            this.proximoFinAtencionEntrada6.Name = "proximoFinAtencionEntrada6";
+            this.proximoFinAtencionEntrada6.ReadOnly = true;
             // 
             // Visualizador
             // 
@@ -336,22 +368,26 @@
         private System.Windows.Forms.PictureBox imgX;
         private System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.DataGridView grdCorrectiva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jornada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnd1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnd2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnd3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dia_revision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dia_averia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_arreglo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_revision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_acum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_prom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cant_averias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_promedio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uso_max;
         private System.Windows.Forms.Button btnObjetosTemporales;
         private System.Windows.Forms.Label lblVectorEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rndLlegada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoLlegada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximaLlegada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rndFinAtencionParking;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoFinAtencionParking;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionParking1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionParking2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionParking3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionParking4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionParking5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rndFinAtencionEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoFinAtencionEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionEntrada1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionEntrada2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionEntrada3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionEntrada4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionEntrada5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinAtencionEntrada6;
     }
 }
