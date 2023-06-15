@@ -44,6 +44,8 @@
             this.lblParametros = new System.Windows.Forms.Label();
             this.btnSimular = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.txtCantSimulaciones = new System.Windows.Forms.TextBox();
+            this.lblCantSimulaciones = new System.Windows.Forms.Label();
             this.pnlTitulo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +74,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            this.panel1.Controls.Add(this.lblCantSimulaciones);
+            this.panel1.Controls.Add(this.txtCantSimulaciones);
             this.panel1.Controls.Add(this.txtMediaControlComidaMayores);
             this.panel1.Controls.Add(this.lblTiempoPromControlComidaMayores);
             this.panel1.Controls.Add(this.txtMediaControlComida);
@@ -84,7 +88,7 @@
             this.panel1.Controls.Add(this.lblLlegadaAuto);
             this.panel1.Location = new System.Drawing.Point(0, 180);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 275);
+            this.panel1.Size = new System.Drawing.Size(784, 293);
             this.panel1.TabIndex = 5;
             // 
             // txtMediaControlComidaMayores
@@ -93,7 +97,7 @@
             this.txtMediaControlComidaMayores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMediaControlComidaMayores.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMediaControlComidaMayores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.txtMediaControlComidaMayores.Location = new System.Drawing.Point(477, 211);
+            this.txtMediaControlComidaMayores.Location = new System.Drawing.Point(494, 201);
             this.txtMediaControlComidaMayores.Name = "txtMediaControlComidaMayores";
             this.txtMediaControlComidaMayores.Size = new System.Drawing.Size(167, 34);
             this.txtMediaControlComidaMayores.TabIndex = 15;
@@ -104,7 +108,7 @@
             this.lblTiempoPromControlComidaMayores.AutoSize = true;
             this.lblTiempoPromControlComidaMayores.Font = new System.Drawing.Font("Microsoft JhengHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoPromControlComidaMayores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblTiempoPromControlComidaMayores.Location = new System.Drawing.Point(3, 213);
+            this.lblTiempoPromControlComidaMayores.Location = new System.Drawing.Point(20, 203);
             this.lblTiempoPromControlComidaMayores.Name = "lblTiempoPromControlComidaMayores";
             this.lblTiempoPromControlComidaMayores.Size = new System.Drawing.Size(455, 26);
             this.lblTiempoPromControlComidaMayores.TabIndex = 14;
@@ -116,7 +120,7 @@
             this.txtMediaControlComida.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMediaControlComida.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMediaControlComida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.txtMediaControlComida.Location = new System.Drawing.Point(477, 164);
+            this.txtMediaControlComida.Location = new System.Drawing.Point(494, 154);
             this.txtMediaControlComida.Name = "txtMediaControlComida";
             this.txtMediaControlComida.Size = new System.Drawing.Size(167, 34);
             this.txtMediaControlComida.TabIndex = 13;
@@ -127,7 +131,7 @@
             this.lblTiempoPromControlComida.AutoSize = true;
             this.lblTiempoPromControlComida.Font = new System.Drawing.Font("Microsoft JhengHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoPromControlComida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblTiempoPromControlComida.Location = new System.Drawing.Point(96, 169);
+            this.lblTiempoPromControlComida.Location = new System.Drawing.Point(113, 159);
             this.lblTiempoPromControlComida.Name = "lblTiempoPromControlComida";
             this.lblTiempoPromControlComida.Size = new System.Drawing.Size(363, 26);
             this.lblTiempoPromControlComida.TabIndex = 12;
@@ -139,7 +143,7 @@
             this.txtMediaAtenciónEntrada.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMediaAtenciónEntrada.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMediaAtenciónEntrada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.txtMediaAtenciónEntrada.Location = new System.Drawing.Point(477, 118);
+            this.txtMediaAtenciónEntrada.Location = new System.Drawing.Point(494, 108);
             this.txtMediaAtenciónEntrada.Name = "txtMediaAtenciónEntrada";
             this.txtMediaAtenciónEntrada.Size = new System.Drawing.Size(167, 34);
             this.txtMediaAtenciónEntrada.TabIndex = 11;
@@ -150,7 +154,7 @@
             this.lblTiempoPromAtenciónEntrada.AutoSize = true;
             this.lblTiempoPromAtenciónEntrada.Font = new System.Drawing.Font("Microsoft JhengHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoPromAtenciónEntrada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblTiempoPromAtenciónEntrada.Location = new System.Drawing.Point(78, 122);
+            this.lblTiempoPromAtenciónEntrada.Location = new System.Drawing.Point(95, 112);
             this.lblTiempoPromAtenciónEntrada.Name = "lblTiempoPromAtenciónEntrada";
             this.lblTiempoPromAtenciónEntrada.Size = new System.Drawing.Size(380, 26);
             this.lblTiempoPromAtenciónEntrada.TabIndex = 10;
@@ -162,7 +166,7 @@
             this.txtMediaAtenciónParking.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMediaAtenciónParking.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMediaAtenciónParking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.txtMediaAtenciónParking.Location = new System.Drawing.Point(477, 72);
+            this.txtMediaAtenciónParking.Location = new System.Drawing.Point(494, 62);
             this.txtMediaAtenciónParking.Name = "txtMediaAtenciónParking";
             this.txtMediaAtenciónParking.Size = new System.Drawing.Size(167, 34);
             this.txtMediaAtenciónParking.TabIndex = 9;
@@ -173,7 +177,7 @@
             this.lblTiempoPromAtenciónParking.AutoSize = true;
             this.lblTiempoPromAtenciónParking.Font = new System.Drawing.Font("Microsoft JhengHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoPromAtenciónParking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblTiempoPromAtenciónParking.Location = new System.Drawing.Point(78, 74);
+            this.lblTiempoPromAtenciónParking.Location = new System.Drawing.Point(95, 64);
             this.lblTiempoPromAtenciónParking.Name = "lblTiempoPromAtenciónParking";
             this.lblTiempoPromAtenciónParking.Size = new System.Drawing.Size(380, 26);
             this.lblTiempoPromAtenciónParking.TabIndex = 8;
@@ -185,7 +189,7 @@
             this.txtMediaLLegadaAuto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMediaLLegadaAuto.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMediaLLegadaAuto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.txtMediaLLegadaAuto.Location = new System.Drawing.Point(477, 26);
+            this.txtMediaLLegadaAuto.Location = new System.Drawing.Point(494, 16);
             this.txtMediaLLegadaAuto.Name = "txtMediaLLegadaAuto";
             this.txtMediaLLegadaAuto.Size = new System.Drawing.Size(167, 34);
             this.txtMediaLLegadaAuto.TabIndex = 7;
@@ -196,7 +200,7 @@
             this.lblLlegadaAuto.AutoSize = true;
             this.lblLlegadaAuto.Font = new System.Drawing.Font("Microsoft JhengHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLlegadaAuto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblLlegadaAuto.Location = new System.Drawing.Point(124, 29);
+            this.lblLlegadaAuto.Location = new System.Drawing.Point(141, 19);
             this.lblLlegadaAuto.Name = "lblLlegadaAuto";
             this.lblLlegadaAuto.Size = new System.Drawing.Size(335, 26);
             this.lblLlegadaAuto.TabIndex = 6;
@@ -242,6 +246,29 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
             // 
+            // txtCantSimulaciones
+            // 
+            this.txtCantSimulaciones.BackColor = System.Drawing.Color.White;
+            this.txtCantSimulaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCantSimulaciones.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantSimulaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.txtCantSimulaciones.Location = new System.Drawing.Point(494, 246);
+            this.txtCantSimulaciones.Name = "txtCantSimulaciones";
+            this.txtCantSimulaciones.Size = new System.Drawing.Size(167, 34);
+            this.txtCantSimulaciones.TabIndex = 16;
+            this.txtCantSimulaciones.Text = "15";
+            // 
+            // lblCantSimulaciones
+            // 
+            this.lblCantSimulaciones.AutoSize = true;
+            this.lblCantSimulaciones.Font = new System.Drawing.Font("Microsoft JhengHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantSimulaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.lblCantSimulaciones.Location = new System.Drawing.Point(191, 250);
+            this.lblCantSimulaciones.Name = "lblCantSimulaciones";
+            this.lblCantSimulaciones.Size = new System.Drawing.Size(284, 26);
+            this.lblCantSimulaciones.TabIndex = 17;
+            this.lblCantSimulaciones.Text = "Cantidad de simulaciones: ";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,6 +310,8 @@
         private System.Windows.Forms.Label lblParametros;
         private System.Windows.Forms.Button btnSimular;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblCantSimulaciones;
+        private System.Windows.Forms.TextBox txtCantSimulaciones;
     }
 }
 
