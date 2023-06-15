@@ -191,6 +191,7 @@ namespace Colas
             dt.Columns.Add("proximoFinAC1");
             dt.Columns.Add("rndFinAC2");
             dt.Columns.Add("tiempoFinAC2");
+            dt.Columns.Add("proximoFinAC2");//faltaba este
             dt.Columns.Add("rndFinAC3");
             dt.Columns.Add("tiempoFinAC3");
             dt.Columns.Add("proximoFinAC3");
@@ -1034,14 +1035,14 @@ namespace Colas
 
             tiempoLlegada = null;
 
-            proximaLlegada = Convert.ToDecimal(filaAnterior["proximaLlegadaAuto"]);
+            proximaLlegada = Convert.ToDecimal(filaAnterior["proximaLlegada"]);
 
 
             // Fin atención parking y Cajas Park
             rndFinAP = generarRandom();
             tiempoFinAP = generarTiempoExponencial(rndFinAP, mediaAP);
 
-            proximoFinAP1 = Convert.ToDecimal(filaAnterior["proximoFinAP1"]);
+            proximoFinAP1 = Convert.ToDecimal(filaAnterior["proximoFinAP1"]); //estaba el Convert.ToDecimal y nos daba error entonces lo cambiamos
             proximoFinAP2 = Convert.ToDecimal(filaAnterior["proximoFinAP2"]);
             proximoFinAP3 = Convert.ToDecimal(filaAnterior["proximoFinAP3"]);
             proximoFinAP4 = Convert.ToDecimal(filaAnterior["proximoFinAP4"]);
