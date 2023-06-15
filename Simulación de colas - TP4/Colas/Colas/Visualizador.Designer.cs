@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.imgArrow = new System.Windows.Forms.PictureBox();
             this.imgX = new System.Windows.Forms.PictureBox();
@@ -121,7 +121,7 @@
             this.tabSimulacion = new System.Windows.Forms.TabPage();
             this.tabTemporales = new System.Windows.Forms.TabPage();
             this.lblPersonasMayores = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdPersonasMayores = new System.Windows.Forms.DataGridView();
             this.estadoPersonaMayor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPersonas = new System.Windows.Forms.Label();
             this.grdPersonas = new System.Windows.Forms.DataGridView();
@@ -132,6 +132,8 @@
             this.lblAutos = new System.Windows.Forms.Label();
             this.grdAutos = new System.Windows.Forms.DataGridView();
             this.estadoAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picX = new System.Windows.Forms.PictureBox();
+            this.picArrow = new System.Windows.Forms.PictureBox();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).BeginInit();
@@ -139,15 +141,19 @@
             this.tabControl.SuspendLayout();
             this.tabSimulacion.SuspendLayout();
             this.tabTemporales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPersonasMayores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulo
             // 
             this.pnlTitulo.BackColor = System.Drawing.Color.Tomato;
+            this.pnlTitulo.Controls.Add(this.picArrow);
+            this.pnlTitulo.Controls.Add(this.picX);
             this.pnlTitulo.Controls.Add(this.imgArrow);
             this.pnlTitulo.Controls.Add(this.imgX);
             this.pnlTitulo.Controls.Add(this.lblTitulo);
@@ -193,14 +199,14 @@
             this.grdSimulacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.grdSimulacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdSimulacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdSimulacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdSimulacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdSimulacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdSimulacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
@@ -283,14 +289,14 @@
             this.tiempoConseguirEntrada,
             this.cantidadPromedioGenteColaEntrada,
             this.tiempoEntradaDespuesEstacionar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdSimulacion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdSimulacion.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdSimulacion.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.grdSimulacion.Location = new System.Drawing.Point(0, 0);
             this.grdSimulacion.Name = "grdSimulacion";
@@ -1063,7 +1069,7 @@
             // tabTemporales
             // 
             this.tabTemporales.Controls.Add(this.lblPersonasMayores);
-            this.tabTemporales.Controls.Add(this.dataGridView1);
+            this.tabTemporales.Controls.Add(this.grdPersonasMayores);
             this.tabTemporales.Controls.Add(this.lblPersonas);
             this.tabTemporales.Controls.Add(this.grdPersonas);
             this.tabTemporales.Controls.Add(this.lblGrupos);
@@ -1088,18 +1094,18 @@
             this.lblPersonasMayores.TabIndex = 7;
             this.lblPersonasMayores.Text = "Personas mayores";
             // 
-            // dataGridView1
+            // grdPersonasMayores
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdPersonasMayores.AllowUserToAddRows = false;
+            this.grdPersonasMayores.AllowUserToDeleteRows = false;
+            this.grdPersonasMayores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdPersonasMayores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.estadoPersonaMayor});
-            this.dataGridView1.Location = new System.Drawing.Point(804, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(268, 353);
-            this.dataGridView1.TabIndex = 6;
+            this.grdPersonasMayores.Location = new System.Drawing.Point(804, 62);
+            this.grdPersonasMayores.Name = "grdPersonasMayores";
+            this.grdPersonasMayores.ReadOnly = true;
+            this.grdPersonasMayores.Size = new System.Drawing.Size(268, 353);
+            this.grdPersonasMayores.TabIndex = 6;
             // 
             // estadoPersonaMayor
             // 
@@ -1198,6 +1204,30 @@
             this.estadoAuto.Name = "estadoAuto";
             this.estadoAuto.ReadOnly = true;
             // 
+            // picX
+            // 
+            this.picX.BackgroundImage = global::Colas.Properties.Resources.X2;
+            this.picX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picX.Location = new System.Drawing.Point(1003, 11);
+            this.picX.Name = "picX";
+            this.picX.Size = new System.Drawing.Size(65, 65);
+            this.picX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picX.TabIndex = 3;
+            this.picX.TabStop = false;
+            this.picX.Click += new System.EventHandler(this.picX_Click);
+            // 
+            // picArrow
+            // 
+            this.picArrow.BackgroundImage = global::Colas.Properties.Resources.Arrow2;
+            this.picArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picArrow.Location = new System.Drawing.Point(932, 11);
+            this.picArrow.Name = "picArrow";
+            this.picArrow.Size = new System.Drawing.Size(65, 65);
+            this.picArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picArrow.TabIndex = 4;
+            this.picArrow.TabStop = false;
+            this.picArrow.Click += new System.EventHandler(this.picArrow_Click);
+            // 
             // Visualizador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1220,10 +1250,12 @@
             this.tabSimulacion.ResumeLayout(false);
             this.tabTemporales.ResumeLayout(false);
             this.tabTemporales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPersonasMayores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1321,7 +1353,7 @@
         private System.Windows.Forms.TabPage tabSimulacion;
         private System.Windows.Forms.TabPage tabTemporales;
         private System.Windows.Forms.Label lblPersonasMayores;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdPersonasMayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoPersonaMayor;
         private System.Windows.Forms.Label lblPersonas;
         private System.Windows.Forms.DataGridView grdPersonas;
@@ -1332,5 +1364,7 @@
         private System.Windows.Forms.Label lblAutos;
         private System.Windows.Forms.DataGridView grdAutos;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoAuto;
+        private System.Windows.Forms.PictureBox picX;
+        private System.Windows.Forms.PictureBox picArrow;
     }
 }

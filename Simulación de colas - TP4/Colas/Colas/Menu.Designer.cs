@@ -31,6 +31,10 @@
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlParametros = new System.Windows.Forms.Panel();
+            this.lblVerHasta = new System.Windows.Forms.Label();
+            this.txtVerHasta = new System.Windows.Forms.TextBox();
+            this.lblVerDesde = new System.Windows.Forms.Label();
+            this.txtVerDesde = new System.Windows.Forms.TextBox();
             this.lblCantSimulaciones = new System.Windows.Forms.Label();
             this.txtCantSimulaciones = new System.Windows.Forms.TextBox();
             this.txtMediaControlComidaMayores = new System.Windows.Forms.TextBox();
@@ -46,12 +50,11 @@
             this.lblParametros = new System.Windows.Forms.Label();
             this.btnSimular = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.lblVerDesde = new System.Windows.Forms.Label();
-            this.txtVerDesde = new System.Windows.Forms.TextBox();
-            this.lblVerHasta = new System.Windows.Forms.Label();
-            this.txtVerHasta = new System.Windows.Forms.TextBox();
+            this.pnlArmando = new System.Windows.Forms.Panel();
+            this.lblArmando = new System.Windows.Forms.Label();
             this.pnlTitulo.SuspendLayout();
             this.pnlParametros.SuspendLayout();
+            this.pnlArmando.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -78,6 +81,7 @@
             // pnlParametros
             // 
             this.pnlParametros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            this.pnlParametros.Controls.Add(this.pnlArmando);
             this.pnlParametros.Controls.Add(this.lblVerHasta);
             this.pnlParametros.Controls.Add(this.txtVerHasta);
             this.pnlParametros.Controls.Add(this.lblVerDesde);
@@ -98,6 +102,54 @@
             this.pnlParametros.Name = "pnlParametros";
             this.pnlParametros.Size = new System.Drawing.Size(784, 393);
             this.pnlParametros.TabIndex = 5;
+            // 
+            // lblVerHasta
+            // 
+            this.lblVerHasta.AutoSize = true;
+            this.lblVerHasta.Font = new System.Drawing.Font("Microsoft JhengHei", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVerHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.lblVerHasta.Location = new System.Drawing.Point(319, 341);
+            this.lblVerHasta.Name = "lblVerHasta";
+            this.lblVerHasta.Size = new System.Drawing.Size(195, 23);
+            this.lblVerHasta.TabIndex = 21;
+            this.lblVerHasta.Text = "Ver hasta simulación:";
+            // 
+            // txtVerHasta
+            // 
+            this.txtVerHasta.BackColor = System.Drawing.Color.White;
+            this.txtVerHasta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtVerHasta.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVerHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.txtVerHasta.Location = new System.Drawing.Point(520, 335);
+            this.txtVerHasta.Name = "txtVerHasta";
+            this.txtVerHasta.Size = new System.Drawing.Size(167, 34);
+            this.txtVerHasta.TabIndex = 20;
+            this.txtVerHasta.Text = "500";
+            this.txtVerHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
+            // 
+            // lblVerDesde
+            // 
+            this.lblVerDesde.AutoSize = true;
+            this.lblVerDesde.Font = new System.Drawing.Font("Microsoft JhengHei", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVerDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.lblVerDesde.Location = new System.Drawing.Point(313, 297);
+            this.lblVerDesde.Name = "lblVerDesde";
+            this.lblVerDesde.Size = new System.Drawing.Size(201, 23);
+            this.lblVerDesde.TabIndex = 19;
+            this.lblVerDesde.Text = "Ver desde simulación:";
+            // 
+            // txtVerDesde
+            // 
+            this.txtVerDesde.BackColor = System.Drawing.Color.White;
+            this.txtVerDesde.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtVerDesde.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVerDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.txtVerDesde.Location = new System.Drawing.Point(520, 291);
+            this.txtVerDesde.Name = "txtVerDesde";
+            this.txtVerDesde.Size = new System.Drawing.Size(167, 34);
+            this.txtVerDesde.TabIndex = 18;
+            this.txtVerDesde.Text = "0";
+            this.txtVerDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // lblCantSimulaciones
             // 
@@ -121,6 +173,7 @@
             this.txtCantSimulaciones.Size = new System.Drawing.Size(167, 34);
             this.txtCantSimulaciones.TabIndex = 16;
             this.txtCantSimulaciones.Text = "1000";
+            this.txtCantSimulaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // txtMediaControlComidaMayores
             // 
@@ -133,6 +186,7 @@
             this.txtMediaControlComidaMayores.Size = new System.Drawing.Size(167, 34);
             this.txtMediaControlComidaMayores.TabIndex = 15;
             this.txtMediaControlComidaMayores.Text = "6";
+            this.txtMediaControlComidaMayores.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // lblTiempoPromControlComidaMayores
             // 
@@ -156,6 +210,7 @@
             this.txtMediaControlComida.Size = new System.Drawing.Size(167, 34);
             this.txtMediaControlComida.TabIndex = 13;
             this.txtMediaControlComida.Text = "5";
+            this.txtMediaControlComida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // lblTiempoPromControlComida
             // 
@@ -179,6 +234,7 @@
             this.txtMediaAtenciónEntrada.Size = new System.Drawing.Size(167, 34);
             this.txtMediaAtenciónEntrada.TabIndex = 11;
             this.txtMediaAtenciónEntrada.Text = "92";
+            this.txtMediaAtenciónEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // lblTiempoPromAtenciónEntrada
             // 
@@ -202,6 +258,7 @@
             this.txtMediaAtenciónParking.Size = new System.Drawing.Size(167, 34);
             this.txtMediaAtenciónParking.TabIndex = 9;
             this.txtMediaAtenciónParking.Text = "29";
+            this.txtMediaAtenciónParking.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // lblTiempoPromAtenciónParking
             // 
@@ -225,6 +282,7 @@
             this.txtMediaLLegadaAuto.Size = new System.Drawing.Size(167, 34);
             this.txtMediaLLegadaAuto.TabIndex = 7;
             this.txtMediaLLegadaAuto.Text = "0,66";
+            this.txtMediaLLegadaAuto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // lblLlegadaAuto
             // 
@@ -276,52 +334,28 @@
             this.btnCerrar.TabIndex = 8;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // lblVerDesde
+            // pnlArmando
             // 
-            this.lblVerDesde.AutoSize = true;
-            this.lblVerDesde.Font = new System.Drawing.Font("Microsoft JhengHei", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVerDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblVerDesde.Location = new System.Drawing.Point(313, 297);
-            this.lblVerDesde.Name = "lblVerDesde";
-            this.lblVerDesde.Size = new System.Drawing.Size(201, 23);
-            this.lblVerDesde.TabIndex = 19;
-            this.lblVerDesde.Text = "Ver desde simulación:";
+            this.pnlArmando.BackColor = System.Drawing.Color.Tomato;
+            this.pnlArmando.Controls.Add(this.lblArmando);
+            this.pnlArmando.Location = new System.Drawing.Point(202, 130);
+            this.pnlArmando.Name = "pnlArmando";
+            this.pnlArmando.Size = new System.Drawing.Size(451, 100);
+            this.pnlArmando.TabIndex = 9;
+            this.pnlArmando.Visible = false;
             // 
-            // txtVerDesde
+            // lblArmando
             // 
-            this.txtVerDesde.BackColor = System.Drawing.Color.White;
-            this.txtVerDesde.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVerDesde.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVerDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.txtVerDesde.Location = new System.Drawing.Point(520, 291);
-            this.txtVerDesde.Name = "txtVerDesde";
-            this.txtVerDesde.Size = new System.Drawing.Size(167, 34);
-            this.txtVerDesde.TabIndex = 18;
-            this.txtVerDesde.Text = "0";
-            // 
-            // lblVerHasta
-            // 
-            this.lblVerHasta.AutoSize = true;
-            this.lblVerHasta.Font = new System.Drawing.Font("Microsoft JhengHei", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVerHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.lblVerHasta.Location = new System.Drawing.Point(319, 341);
-            this.lblVerHasta.Name = "lblVerHasta";
-            this.lblVerHasta.Size = new System.Drawing.Size(195, 23);
-            this.lblVerHasta.TabIndex = 21;
-            this.lblVerHasta.Text = "Ver hasta simulación:";
-            // 
-            // txtVerHasta
-            // 
-            this.txtVerHasta.BackColor = System.Drawing.Color.White;
-            this.txtVerHasta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVerHasta.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVerHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.txtVerHasta.Location = new System.Drawing.Point(520, 335);
-            this.txtVerHasta.Name = "txtVerHasta";
-            this.txtVerHasta.Size = new System.Drawing.Size(167, 34);
-            this.txtVerHasta.TabIndex = 20;
-            this.txtVerHasta.Text = "500";
+            this.lblArmando.AutoSize = true;
+            this.lblArmando.Font = new System.Drawing.Font("Microsoft JhengHei Light", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmando.ForeColor = System.Drawing.Color.White;
+            this.lblArmando.Location = new System.Drawing.Point(43, 28);
+            this.lblArmando.Name = "lblArmando";
+            this.lblArmando.Size = new System.Drawing.Size(369, 44);
+            this.lblArmando.TabIndex = 1;
+            this.lblArmando.Text = "Armando simulación...";
             // 
             // Menu
             // 
@@ -341,6 +375,8 @@
             this.pnlTitulo.PerformLayout();
             this.pnlParametros.ResumeLayout(false);
             this.pnlParametros.PerformLayout();
+            this.pnlArmando.ResumeLayout(false);
+            this.pnlArmando.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,6 +406,8 @@
         private System.Windows.Forms.TextBox txtVerHasta;
         private System.Windows.Forms.Label lblVerDesde;
         private System.Windows.Forms.TextBox txtVerDesde;
+        private System.Windows.Forms.Panel pnlArmando;
+        private System.Windows.Forms.Label lblArmando;
     }
 }
 
