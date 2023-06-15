@@ -254,6 +254,7 @@
             this.Controls.Add(this.pnlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú";
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();

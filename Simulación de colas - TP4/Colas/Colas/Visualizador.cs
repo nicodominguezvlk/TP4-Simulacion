@@ -324,22 +324,27 @@ namespace Colas
             if (estadoCajaPark1 == "Libre")
             {
                 estadoCajaPark1 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt");
             }
             else if (estadoCajaPark2 == "Libre")
             {
                 estadoCajaPark2 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt");
             }
             else if (estadoCajaPark3 == "Libre")
             {
                 estadoCajaPark3 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt");
             }
             else if (estadoCajaPark4 == "Libre")
             {
                 estadoCajaPark4 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt");
             }
             else if (estadoCajaPark5 == "Libre")
             {
                 estadoCajaPark5 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt");
             }
             else
             {
