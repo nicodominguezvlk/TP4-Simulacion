@@ -896,7 +896,116 @@ namespace Colas
 
         public void finAtencionParking(DataRow filaAnterior)
         {
-            throw new NotImplementedException();
+            // Marcar número de simulación
+            numeroSimulacionActual++;
+
+
+            // Nombres de las variables (una por cada columna)
+            string evento;
+            decimal reloj;
+
+            decimal? rndLlegada;
+            decimal? tiempoLlegada;
+            decimal? proximaLlegada;
+
+            decimal? rndFinAP;
+            decimal? tiempoFinAP;
+            decimal? proximoFinAP1;
+            decimal? proximoFinAP2;
+            decimal? proximoFinAP3;
+            decimal? proximoFinAP4;
+            decimal? proximoFinAP5;
+
+            decimal? rndFinAE;
+            decimal? tiempoFinAE;
+            decimal? proximoFinAE1;
+            decimal? proximoFinAE2;
+            decimal? proximoFinAE3;
+            decimal? proximoFinAE4;
+            decimal? proximoFinAE5;
+            decimal? proximoFinAE6;
+            decimal? rndCantidadPersonas;
+            int? cantidadPersonas;
+            decimal? rndCantidadPersonasMayores;
+            int? cantidadPersonasMayores;
+            int? cantidadPersonasNoMayores;
+
+            decimal? rndFinAC1;
+            decimal? tiempoFinAC1;
+            decimal? proximoFinAC1;
+            decimal? rndFinAC2;
+            decimal? tiempoFinAC2;
+            decimal? proximoFinAC2;
+            decimal? rndFinAC3;
+            decimal? tiempoFinAC3;
+            decimal? proximoFinAC3;
+            decimal? rndFinAC4;
+            decimal? tiempoFinAC4;
+            decimal? proximoFinAC4;
+
+            decimal? rndFinACM;
+            decimal? tiempoFinACM;
+            decimal? proximoFinACM;
+
+            int? colaPark1;
+            string estadoCajaPark1;
+            int? colaPark2;
+            string estadoCajaPark2;
+            int? colaPark3;
+            string estadoCajaPark3;
+            int? colaPark4;
+            string estadoCajaPark4;
+            int? colaPark5;
+            string estadoCajaPark5;
+
+            int? colaEntrada1y2;
+            string estadoCajaEntrada1;
+            string estadoCajaEntrada2;
+            int? colaEntrada3y4;
+            string estadoCajaEntrada3;
+            string estadoCajaEntrada4;
+            int? colaEntrada5y6;
+            string estadoCajaEntrada5;
+            string estadoCajaEntrada6;
+
+            int? colaComida1;
+            string estadoControlComida1;
+            int? colaComida2;
+            string estadoControlComida2;
+            int? colaComida3;
+            string estadoControlComida3;
+            int? colaComida4;
+            string estadoControlComida4;
+
+            int? colaComidaMayores;
+            string estadoControlComidaMayores;
+
+            decimal? metrosPromedioNecesariosParaAparcamiento;
+            decimal? acumuladorTiempoColaParking;
+            decimal? cantidadPromedioAutosEnColaPark;
+            int? contadorGruposCajaEntrada;
+            decimal? acumuladorTiempoColaEntrada;
+            decimal? tiempoPromedioEnColaEntrada;
+            int? contadorPersonasEnControlComida;
+            decimal? acumuladorTiempoColaComida;
+            decimal? tiempoPromedioEnColaComida;
+            decimal? tiempoEnConseguirEntrada;
+            decimal? cantidadPromedioGenteEnColaEntrada;
+            decimal? tiempoEntradaDespuesDeEstacionar;
+
+            // Evento
+            evento = "Fin AP";
+
+            // Reloj
+            reloj = Convert.ToDecimal(filaAnterior["reloj"]);
+
+            // Fin Atención Parking
+            rndFinAp = generarRandom();
+
+            tiempoLlegada = generarTiempoFinAP(rndFinAP);
+
+            proximaLlegada = generarProximaLlegada(reloj, tiempoLlegada);
+
         }
 
         public void finAtencionEntrada(DataRow filaAnterior)
