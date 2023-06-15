@@ -899,7 +899,6 @@ namespace Colas
             // Marcar número de simulación
             numeroSimulacionActual++;
 
-
             // Nombres de las variables (una por cada columna)
             string evento;
             decimal reloj;
@@ -999,13 +998,210 @@ namespace Colas
             // Reloj
             reloj = Convert.ToDecimal(filaAnterior["reloj"]);
 
-            // Fin Atención Parking
-            rndFinAp = generarRandom();
+            // Llegada auto
+            rndLlegada = null;
 
-            tiempoLlegada = generarTiempoFinAP(rndFinAP);
+            tiempoLlegada = null;
 
-            proximaLlegada = generarProximaLlegada(reloj, tiempoLlegada);
+            proximaLlegada = Convert.ToDecimal(filaAnterior["proximaLlegadaAuto"]);
+            
 
+            // Fin atención parking
+            rndFinAP = generarRandom();
+            tiempoFinAP = generarTiempoFinAP(rndFinAP);
+
+            proximoFinAP1 = Convert.ToDecimal(filaAnterior["proximoFinAP1"]);
+            proximoFinAP2 = Convert.ToDecimal(filaAnterior["proximoFinAP2"]);
+            proximoFinAP3 = Convert.ToDecimal(filaAnterior["proximoFinAP3"]);
+            proximoFinAP4 = Convert.ToDecimal(filaAnterior["proximoFinAP4"]);
+            proximoFinAP5 = Convert.ToDecimal(filaAnterior["proximoFinAP5"]);
+
+            // Caja park
+            colaPark1 = Convert.ToInt32(filaAnterior["colaPark1"]);
+            estadoCajaPark1 = filaAnterior["estadoCajaPark1"].ToString();
+            colaPark2 = Convert.ToInt32(filaAnterior["colaPark2"]);
+            estadoCajaPark2 = filaAnterior["estadoCajaPark2"].ToString();
+            colaPark3 = Convert.ToInt32(filaAnterior["colaPark3"]);
+            estadoCajaPark3 = filaAnterior["estadoCajaPark3"].ToString();
+            colaPark4 = Convert.ToInt32(filaAnterior["colaPark4"]);
+            estadoCajaPark4 = filaAnterior["estadoCajaPark4"].ToString();
+            colaPark5 = Convert.ToInt32(filaAnterior["colaPark5"]);
+            estadoCajaPark5 = filaAnterior["estadoCajaPark5"].ToString();
+
+            if (proximoFinAP1 == reloj)
+            {
+                if (colaPark1 > 0)
+                {
+                    proximoFinAP1 = generarProximoFinAP(reloj, tiempoFinAP);
+                    colaPark1 -= 1;
+                    grdAutos.Rows.Add("SiendoAt1");
+                }
+                else
+                {
+                    proximoFinAP1 = null;
+                    estadoCajaPark1 = "Libre";
+                }
+            }
+            else if (proximoFinAP2 == reloj)
+            {
+                if (colaPark2 > 0)
+                {
+                    proximoFinAP2 = generarProximoFinAP(reloj, tiempoFinAP);
+                    colaPark2 -= 1;
+                    grdAutos.Rows.Add("SiendoAt2");
+                }
+                else
+                {
+                    proximoFinAP2 = null;
+                    estadoCajaPark2 = "Libre";
+                }
+            }
+            else if (proximoFinAP3 == reloj)
+            {
+                if (colaPark3 > 0)
+                {
+                    proximoFinAP3 = generarProximoFinAP(reloj, tiempoFinAP);
+                    colaPark3 -= 1;
+                    grdAutos.Rows.Add("SiendoAt3");
+                }
+                else
+                {
+                    proximoFinAP3 = null;
+                    estadoCajaPark3 = "Libre";
+                }
+            }
+            else if (proximoFinAP4 == reloj)
+            {
+                if (colaPark4 > 0)
+                {
+                    proximoFinAP4 = generarProximoFinAP(reloj, tiempoFinAP);
+                    colaPark4 -= 1;
+                    grdAutos.Rows.Add("SiendoAt4");
+                }
+                else
+                {
+                    proximoFinAP4 = null;
+                    estadoCajaPark4 = "Libre";
+                }
+            }
+            else if (proximoFinAP5 == reloj)
+            {
+                if (colaPark5 > 0)
+                {
+                    proximoFinAP5 = generarProximoFinAP(reloj, tiempoFinAP);
+                    colaPark5 -= 1;
+                    grdAutos.Rows.Add("SiendoAt5");
+                }
+                else
+                {
+                    proximoFinAP5 = null;
+                    estadoCajaPark5 = "Libre";
+                }
+            }
+
+            // Fin atención entrada
+            rndFinAE = null;
+
+            tiempoFinAE = null;
+
+            proximoFinAE1 = Convert.ToDecimal(filaAnterior["proximoFinAE1"]);
+            proximoFinAE2 = Convert.ToDecimal(filaAnterior["proximoFinAE2"]);
+            proximoFinAE3 = Convert.ToDecimal(filaAnterior["proximoFinAE3"]);
+            proximoFinAE4 = Convert.ToDecimal(filaAnterior["proximoFinAE4"]);
+            proximoFinAE5 = Convert.ToDecimal(filaAnterior["proximoFinAE5"]);
+            proximoFinAE6 = Convert.ToDecimal(filaAnterior["proximoFinAE6"]);
+
+            rndCantidadPersonas = null;
+
+            cantidadPersonas = null;
+
+            rndCantidadPersonasMayores = null;
+
+            cantidadPersonasMayores = null;
+
+            cantidadPersonasNoMayores = null;
+
+            // Fin atención control comida
+            rndFinAC1 = null;
+            tiempoFinAC1 = null;
+            proximoFinAC1 = null;
+
+            rndFinAC2 = null;
+            tiempoFinAC2 = null;
+            proximoFinAC2 = null;
+
+            rndFinAC3 = null;
+            tiempoFinAC3 = null;
+            proximoFinAC3 = null;
+
+            rndFinAC4 = null;
+            tiempoFinAC4 = null;
+            proximoFinAC4 = null;
+
+
+            // Fin atención control comida mayores
+            rndFinACM = null;
+            tiempoFinACM = null;
+            proximoFinACM = null;
+
+            // Caja park
+            // Esto quedo definido mas arriba
+
+            if (estadoCajaPark1 == "Libre")
+            {
+                estadoCajaPark1 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt1");
+            }
+            else if (estadoCajaPark2 == "Libre")
+            {
+                estadoCajaPark2 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt2");
+            }
+            else if (estadoCajaPark3 == "Libre")
+            {
+                estadoCajaPark3 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt3");
+            }
+            else if (estadoCajaPark4 == "Libre")
+            {
+                estadoCajaPark4 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt4");
+            }
+            else if (estadoCajaPark5 == "Libre")
+            {
+                estadoCajaPark5 = "Ocupada";
+                grdAutos.Rows.Add("SiendoAt5");
+            }
+            else
+            {
+                int? colaMasChica = obtenerColaMenor(colaPark1, colaPark2, colaPark3, colaPark4, colaPark5);
+
+                if (colaMasChica == colaPark1)
+                {
+                    colaPark1++;
+                    grdAutos.Rows.Add("EnColaPark1");
+                }
+                else if (colaMasChica == colaPark2)
+                {
+                    colaPark2++;
+                    grdAutos.Rows.Add("EnColaPark2");
+                }
+                else if (colaMasChica == colaPark3)
+                {
+                    colaPark3++;
+                    grdAutos.Rows.Add("EnColaPark3");
+                }
+                else if (colaMasChica == colaPark4)
+                {
+                    colaPark4++;
+                    grdAutos.Rows.Add("EnColaPark4");
+                }
+                else if (colaMasChica == colaPark5)
+                {
+                    colaPark5++;
+                    grdAutos.Rows.Add("EnColaPark5");
+                }
+            }
         }
 
         public void finAtencionEntrada(DataRow filaAnterior)
