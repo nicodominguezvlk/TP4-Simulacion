@@ -34,7 +34,7 @@
             this.imgArrow = new System.Windows.Forms.PictureBox();
             this.imgX = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.grdCorrectiva = new System.Windows.Forms.DataGridView();
+            this.grdSimulacion = new System.Windows.Forms.DataGridView();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,29 +120,29 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabSimulacion = new System.Windows.Forms.TabPage();
             this.tabTemporales = new System.Windows.Forms.TabPage();
-            this.grdAutos = new System.Windows.Forms.DataGridView();
-            this.lblAutos = new System.Windows.Forms.Label();
-            this.lblGrupos = new System.Windows.Forms.Label();
-            this.grdGrupos = new System.Windows.Forms.DataGridView();
-            this.lblPersonas = new System.Windows.Forms.Label();
-            this.grdPersonas = new System.Windows.Forms.DataGridView();
             this.lblPersonasMayores = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.estadoAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoPersonaMayor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPersonas = new System.Windows.Forms.Label();
+            this.grdPersonas = new System.Windows.Forms.DataGridView();
+            this.estadoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblGrupos = new System.Windows.Forms.Label();
+            this.grdGrupos = new System.Windows.Forms.DataGridView();
+            this.estadoGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblAutos = new System.Windows.Forms.Label();
+            this.grdAutos = new System.Windows.Forms.DataGridView();
+            this.estadoAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCorrectiva)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSimulacion)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabSimulacion.SuspendLayout();
             this.tabTemporales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -186,13 +186,13 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Visualizador";
             // 
-            // grdCorrectiva
+            // grdSimulacion
             // 
-            this.grdCorrectiva.AllowUserToAddRows = false;
-            this.grdCorrectiva.AllowUserToDeleteRows = false;
-            this.grdCorrectiva.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.grdCorrectiva.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdCorrectiva.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.grdSimulacion.AllowUserToAddRows = false;
+            this.grdSimulacion.AllowUserToDeleteRows = false;
+            this.grdSimulacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.grdSimulacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdSimulacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,9 +200,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdCorrectiva.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.grdCorrectiva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCorrectiva.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdSimulacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdSimulacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSimulacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
             this.reloj,
             this.rndLlegada,
@@ -290,14 +290,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdCorrectiva.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grdCorrectiva.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.grdCorrectiva.Location = new System.Drawing.Point(0, 0);
-            this.grdCorrectiva.Name = "grdCorrectiva";
-            this.grdCorrectiva.ReadOnly = true;
-            this.grdCorrectiva.RowHeadersWidth = 51;
-            this.grdCorrectiva.Size = new System.Drawing.Size(1072, 419);
-            this.grdCorrectiva.TabIndex = 4;
+            this.grdSimulacion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.grdSimulacion.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.grdSimulacion.Location = new System.Drawing.Point(0, 0);
+            this.grdSimulacion.Name = "grdSimulacion";
+            this.grdSimulacion.ReadOnly = true;
+            this.grdSimulacion.RowHeadersWidth = 51;
+            this.grdSimulacion.Size = new System.Drawing.Size(1072, 419);
+            this.grdSimulacion.TabIndex = 4;
             // 
             // evento
             // 
@@ -1051,7 +1051,7 @@
             // 
             // tabSimulacion
             // 
-            this.tabSimulacion.Controls.Add(this.grdCorrectiva);
+            this.tabSimulacion.Controls.Add(this.grdSimulacion);
             this.tabSimulacion.Location = new System.Drawing.Point(4, 26);
             this.tabSimulacion.Name = "tabSimulacion";
             this.tabSimulacion.Padding = new System.Windows.Forms.Padding(3);
@@ -1078,51 +1078,35 @@
             this.tabTemporales.Text = "Objetos Temporales";
             this.tabTemporales.UseVisualStyleBackColor = true;
             // 
-            // grdAutos
+            // lblPersonasMayores
             // 
-            this.grdAutos.AllowUserToAddRows = false;
-            this.grdAutos.AllowUserToDeleteRows = false;
-            this.grdAutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdAutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.estadoAuto});
-            this.grdAutos.Location = new System.Drawing.Point(0, 62);
-            this.grdAutos.Name = "grdAutos";
-            this.grdAutos.ReadOnly = true;
-            this.grdAutos.Size = new System.Drawing.Size(269, 353);
-            this.grdAutos.TabIndex = 0;
+            this.lblPersonasMayores.AutoSize = true;
+            this.lblPersonasMayores.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonasMayores.Location = new System.Drawing.Point(838, 18);
+            this.lblPersonasMayores.Name = "lblPersonasMayores";
+            this.lblPersonasMayores.Size = new System.Drawing.Size(210, 30);
+            this.lblPersonasMayores.TabIndex = 7;
+            this.lblPersonasMayores.Text = "Personas mayores";
             // 
-            // lblAutos
+            // dataGridView1
             // 
-            this.lblAutos.AutoSize = true;
-            this.lblAutos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAutos.Location = new System.Drawing.Point(95, 18);
-            this.lblAutos.Name = "lblAutos";
-            this.lblAutos.Size = new System.Drawing.Size(76, 30);
-            this.lblAutos.TabIndex = 1;
-            this.lblAutos.Text = "Autos";
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estadoPersonaMayor});
+            this.dataGridView1.Location = new System.Drawing.Point(804, 62);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(268, 353);
+            this.dataGridView1.TabIndex = 6;
             // 
-            // lblGrupos
+            // estadoPersonaMayor
             // 
-            this.lblGrupos.AutoSize = true;
-            this.lblGrupos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupos.Location = new System.Drawing.Point(358, 18);
-            this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(93, 30);
-            this.lblGrupos.TabIndex = 3;
-            this.lblGrupos.Text = "Grupos";
-            // 
-            // grdGrupos
-            // 
-            this.grdGrupos.AllowUserToAddRows = false;
-            this.grdGrupos.AllowUserToDeleteRows = false;
-            this.grdGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdGrupos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.estadoGrupo});
-            this.grdGrupos.Location = new System.Drawing.Point(268, 62);
-            this.grdGrupos.Name = "grdGrupos";
-            this.grdGrupos.ReadOnly = true;
-            this.grdGrupos.Size = new System.Drawing.Size(269, 353);
-            this.grdGrupos.TabIndex = 2;
+            this.estadoPersonaMayor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estadoPersonaMayor.HeaderText = "Estado";
+            this.estadoPersonaMayor.Name = "estadoPersonaMayor";
+            this.estadoPersonaMayor.ReadOnly = true;
             // 
             // lblPersonas
             // 
@@ -1147,35 +1131,35 @@
             this.grdPersonas.Size = new System.Drawing.Size(269, 353);
             this.grdPersonas.TabIndex = 4;
             // 
-            // lblPersonasMayores
+            // estadoPersona
             // 
-            this.lblPersonasMayores.AutoSize = true;
-            this.lblPersonasMayores.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonasMayores.Location = new System.Drawing.Point(838, 18);
-            this.lblPersonasMayores.Name = "lblPersonasMayores";
-            this.lblPersonasMayores.Size = new System.Drawing.Size(210, 30);
-            this.lblPersonasMayores.TabIndex = 7;
-            this.lblPersonasMayores.Text = "Personas mayores";
+            this.estadoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estadoPersona.HeaderText = "Estado";
+            this.estadoPersona.Name = "estadoPersona";
+            this.estadoPersona.ReadOnly = true;
             // 
-            // dataGridView1
+            // lblGrupos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.estadoPersonaMayor});
-            this.dataGridView1.Location = new System.Drawing.Point(804, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(268, 353);
-            this.dataGridView1.TabIndex = 6;
+            this.lblGrupos.AutoSize = true;
+            this.lblGrupos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupos.Location = new System.Drawing.Point(358, 18);
+            this.lblGrupos.Name = "lblGrupos";
+            this.lblGrupos.Size = new System.Drawing.Size(93, 30);
+            this.lblGrupos.TabIndex = 3;
+            this.lblGrupos.Text = "Grupos";
             // 
-            // estadoAuto
+            // grdGrupos
             // 
-            this.estadoAuto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estadoAuto.HeaderText = "Estado";
-            this.estadoAuto.Name = "estadoAuto";
-            this.estadoAuto.ReadOnly = true;
+            this.grdGrupos.AllowUserToAddRows = false;
+            this.grdGrupos.AllowUserToDeleteRows = false;
+            this.grdGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdGrupos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estadoGrupo});
+            this.grdGrupos.Location = new System.Drawing.Point(268, 62);
+            this.grdGrupos.Name = "grdGrupos";
+            this.grdGrupos.ReadOnly = true;
+            this.grdGrupos.Size = new System.Drawing.Size(269, 353);
+            this.grdGrupos.TabIndex = 2;
             // 
             // estadoGrupo
             // 
@@ -1184,19 +1168,35 @@
             this.estadoGrupo.Name = "estadoGrupo";
             this.estadoGrupo.ReadOnly = true;
             // 
-            // estadoPersona
+            // lblAutos
             // 
-            this.estadoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estadoPersona.HeaderText = "Estado";
-            this.estadoPersona.Name = "estadoPersona";
-            this.estadoPersona.ReadOnly = true;
+            this.lblAutos.AutoSize = true;
+            this.lblAutos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutos.Location = new System.Drawing.Point(95, 18);
+            this.lblAutos.Name = "lblAutos";
+            this.lblAutos.Size = new System.Drawing.Size(76, 30);
+            this.lblAutos.TabIndex = 1;
+            this.lblAutos.Text = "Autos";
             // 
-            // estadoPersonaMayor
+            // grdAutos
             // 
-            this.estadoPersonaMayor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estadoPersonaMayor.HeaderText = "Estado";
-            this.estadoPersonaMayor.Name = "estadoPersonaMayor";
-            this.estadoPersonaMayor.ReadOnly = true;
+            this.grdAutos.AllowUserToAddRows = false;
+            this.grdAutos.AllowUserToDeleteRows = false;
+            this.grdAutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdAutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estadoAuto});
+            this.grdAutos.Location = new System.Drawing.Point(0, 62);
+            this.grdAutos.Name = "grdAutos";
+            this.grdAutos.ReadOnly = true;
+            this.grdAutos.Size = new System.Drawing.Size(269, 353);
+            this.grdAutos.TabIndex = 0;
+            // 
+            // estadoAuto
+            // 
+            this.estadoAuto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estadoAuto.HeaderText = "Estado";
+            this.estadoAuto.Name = "estadoAuto";
+            this.estadoAuto.ReadOnly = true;
             // 
             // Visualizador
             // 
@@ -1215,15 +1215,15 @@
             this.pnlTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCorrectiva)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSimulacion)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabSimulacion.ResumeLayout(false);
             this.tabTemporales.ResumeLayout(false);
             this.tabTemporales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1234,7 +1234,7 @@
         private System.Windows.Forms.PictureBox imgArrow;
         private System.Windows.Forms.PictureBox imgX;
         private System.Windows.Forms.Label lblTitulo;
-        public System.Windows.Forms.DataGridView grdCorrectiva;
+        public System.Windows.Forms.DataGridView grdSimulacion;
         private System.Windows.Forms.Button btnObjetosTemporales;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
