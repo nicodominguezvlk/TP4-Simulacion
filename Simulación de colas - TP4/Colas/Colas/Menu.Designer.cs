@@ -226,6 +226,7 @@
             this.btnSimular.TabIndex = 7;
             this.btnSimular.Text = "Simular";
             this.btnSimular.UseVisualStyleBackColor = false;
+            this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
             // 
             // btnCerrar
             // 

@@ -16,5 +16,10 @@ namespace Colas
         {
             InitializeComponent();
         }
+
+        private void btnSimular_Click(object sender, EventArgs e)
+        {
+            Visualizador visualizador = new Visualizador(Convert.ToDecimal(txtMediaLLegadaAuto.Text), Convert.ToDecimal(txtMediaAtenciónParking.Text), Convert.ToDecimal(txtMediaAtenciónEntrada.Text), Convert.ToDecimal(txtMediaControlComida.Text), Convert.ToDecimal(txtMediaControlComidaMayores.Text));
+        }
     }
 }
