@@ -181,7 +181,7 @@
             this.txtMediaControlComidaMayores.Name = "txtMediaControlComidaMayores";
             this.txtMediaControlComidaMayores.Size = new System.Drawing.Size(167, 34);
             this.txtMediaControlComidaMayores.TabIndex = 15;
-            this.txtMediaControlComidaMayores.Text = "6";
+            this.txtMediaControlComidaMayores.Text = "2";
             this.txtMediaControlComidaMayores.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN_KeyPress);
             // 
             // lblTiempoPromControlComidaMayores
