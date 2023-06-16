@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlTitulo = new System.Windows.Forms.Panel();
-            this.picArrow = new System.Windows.Forms.PictureBox();
             this.picX = new System.Windows.Forms.PictureBox();
             this.imgArrow = new System.Windows.Forms.PictureBox();
             this.imgX = new System.Windows.Forms.PictureBox();
@@ -48,8 +47,8 @@
             this.lblCantidadGente = new System.Windows.Forms.Label();
             this.lblTiempoDespuesEstacionar = new System.Windows.Forms.Label();
             this.lblTiempoDespEstacionar = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).BeginInit();
@@ -58,7 +57,6 @@
             // pnlTitulo
             // 
             this.pnlTitulo.BackColor = System.Drawing.Color.Tomato;
-            this.pnlTitulo.Controls.Add(this.picArrow);
             this.pnlTitulo.Controls.Add(this.picX);
             this.pnlTitulo.Controls.Add(this.imgArrow);
             this.pnlTitulo.Controls.Add(this.imgX);
@@ -68,18 +66,6 @@
             this.pnlTitulo.Name = "pnlTitulo";
             this.pnlTitulo.Size = new System.Drawing.Size(1064, 90);
             this.pnlTitulo.TabIndex = 4;
-            // 
-            // picArrow
-            // 
-            this.picArrow.BackgroundImage = global::Colas.Properties.Resources.Arrow2;
-            this.picArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picArrow.Location = new System.Drawing.Point(903, 11);
-            this.picArrow.Name = "picArrow";
-            this.picArrow.Size = new System.Drawing.Size(65, 65);
-            this.picArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picArrow.TabIndex = 4;
-            this.picArrow.TabStop = false;
-            this.picArrow.Click += new System.EventHandler(this.picArrow_Click);
             // 
             // picX
             // 
@@ -276,11 +262,22 @@
             this.lblTiempoDespEstacionar.TabIndex = 20;
             this.lblTiempoDespEstacionar.Text = "[Tiempo Despues De Estacionar]";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label1.Location = new System.Drawing.Point(933, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 23);
+            this.label1.TabIndex = 21;
+            // 
             // Metricas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 559);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTiempoDespEstacionar);
             this.Controls.Add(this.lblTiempoDespuesEstacionar);
             this.Controls.Add(this.lblCantidadGente);
@@ -302,7 +299,6 @@
             this.Text = "Form1";
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).EndInit();
@@ -314,7 +310,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlTitulo;
-        private System.Windows.Forms.PictureBox picArrow;
         private System.Windows.Forms.PictureBox picX;
         private System.Windows.Forms.PictureBox imgArrow;
         private System.Windows.Forms.PictureBox imgX;
@@ -333,5 +328,6 @@
         private System.Windows.Forms.Label lblCantidadGente;
         private System.Windows.Forms.Label lblTiempoDespuesEstacionar;
         private System.Windows.Forms.Label lblTiempoDespEstacionar;
+        private System.Windows.Forms.Label label1;
     }
 }

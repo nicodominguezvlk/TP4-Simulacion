@@ -37,24 +37,24 @@ namespace Colas
 
         public void rellenarMetricas()
         {
-            lblCantMetros.Text = Convert.ToString(metrosAparc);
-            lblCantidadAutosPromedio.Text = Convert.ToString(cantAutosCP);
-            lblTiempoPromedioEntrada.Text = Convert.ToString(tiempoPromCE);
-            lblTiempoPromedioComida.Text = Convert.ToString(tiempoPromCC);
-            lblTiempoEnConseguirE.Text = Convert.ToString(tiempoEntrada);
-            lblCantidadGente.Text = Convert.ToString(gentePromCE);
-            lblTiempoDespEstacionar.Text = Convert.ToString(entradaDE);
+            lblCantMetros.Text = Math.Round(Convert.ToDouble(metrosAparc), 4).ToString() + "m";
+            lblCantidadAutosPromedio.Text = Math.Round(Convert.ToDouble(cantAutosCP), 4).ToString();
+            lblTiempoPromedioEntrada.Text = Math.Round(Convert.ToDouble(tiempoPromCE), 4).ToString() + "s";
+            lblTiempoPromedioComida.Text = Math.Round(Convert.ToDouble(tiempoPromCC), 4).ToString() + "s";
+            lblTiempoEnConseguirE.Text = Math.Round(Convert.ToDouble(tiempoEntrada), 4).ToString() + "s";
+            lblCantidadGente.Text = Math.Round(Convert.ToDouble(gentePromCE), 4).ToString();
+            lblTiempoDespEstacionar.Text = Math.Round(Convert.ToDouble(entradaDE), 4).ToString() + "s";
         }
 
         private void picArrow_Click(object sender, EventArgs e)
         {
             visualizador.Show();
-            this.Close();
+            Close();
         }
 
         private void picX_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
