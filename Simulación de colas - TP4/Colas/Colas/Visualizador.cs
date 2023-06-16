@@ -557,7 +557,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones <= numeroSimulacionActual)
+            if (cantidadDeSimulaciones >= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada,proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
     proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -815,25 +815,25 @@ namespace Colas
             // Fin atención control comida
             rndFinAC1 = null;
             tiempoFinAC1 = null;
-            proximoFinAC1 = null;
+            proximoFinAC1 = convertirADecimal(filaAnterior["proximoFinAC1"]);
 
             rndFinAC2 = null;
             tiempoFinAC2 = null;
-            proximoFinAC2 = null;
+            proximoFinAC2 = convertirADecimal(filaAnterior["proximoFinAC2"]);
 
             rndFinAC3 = null;
             tiempoFinAC3 = null;
-            proximoFinAC3 = null;
+            proximoFinAC3 = convertirADecimal(filaAnterior["proximoFinAC3"]);
 
             rndFinAC4 = null;
             tiempoFinAC4 = null;
-            proximoFinAC4 = null;
+            proximoFinAC4 = convertirADecimal(filaAnterior["proximoFinAC4"]);
 
 
             // Fin atención control comida mayores
             rndFinACM = null;
             tiempoFinACM = null;
-            proximoFinACM = null;
+            proximoFinACM = convertirADecimal(filaAnterior["proximoFinACM"]);
 
 
 
@@ -935,7 +935,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones <= numeroSimulacionActual)
+            if (cantidadDeSimulaciones >= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -1402,9 +1402,9 @@ namespace Colas
 
 
             // Fin atención entrada
-            rndFinAE = null;
+            rndFinAE = generarRandom();
 
-            tiempoFinAE = null;
+            tiempoFinAE = generarTiempoExponencial(rndFinAE, mediaAE);
 
             proximoFinAE1 = convertirADecimal(filaAnterior["proximoFinAE1"]);
             proximoFinAE2 = convertirADecimal(filaAnterior["proximoFinAE2"]);
@@ -1604,7 +1604,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones <= numeroSimulacionActual)
+            if (cantidadDeSimulaciones >= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -1751,7 +1751,7 @@ namespace Colas
 
             tiempoLlegada = null;
 
-            proximaLlegada = convertirADecimal(filaAnterior["proximaLlegadaAuto"]);
+            proximaLlegada = convertirADecimal(filaAnterior["proximaLlegada"]);
 
 
             // Fin atención parking
@@ -2184,13 +2184,15 @@ namespace Colas
             }
 
 
-            // Fin atención control comida mayores
+            // Fin atención control comida mayores y Control Comida Mayores
             rndFinACM = null;
             tiempoFinACM = null;
-            proximoFinACM = convertirADecimal(filaAnterior["proximoFinACM"]);// no se si lo que estoy haciendo está bien
+            proximoFinACM = convertirADecimal(filaAnterior["proximoFinACM"]);
 
             colaComidaMayores = Convert.ToInt32(filaAnterior["colaComidaMayores"]);
             estadoControlComidaMayores = filaAnterior["estadoControlComidaMayores"].ToString();
+
+            int? mayoresPorAtender = cantidadPersonasMayores;
 
             if (filaAnterior["estadoControlComidaMayores"].ToString() == "Libre")
             {
@@ -2198,14 +2200,15 @@ namespace Colas
                 tiempoFinACM = generarTiempoExponencial(rndFinACM, mediaACM);
                 proximoFinACM = generarProximo(reloj, tiempoFinACM);
                 estadoControlComidaMayores = "Ocupado";
-                cantidadPersonasMayores--;
-                
+                mayoresPorAtender--;
             }
 
-            while (cantidadPersonasMayores > 0)
+            while (mayoresPorAtender > 0)
             {
                 colaComidaMayores++;
+                mayoresPorAtender--;
             }
+
 
             // Caja park
             colaPark1 = Convert.ToInt32(filaAnterior["colaPark1"]);
@@ -2218,11 +2221,6 @@ namespace Colas
             estadoCajaPark4 = filaAnterior["estadoCajaPark4"].ToString();
             colaPark5 = Convert.ToInt32(filaAnterior["colaPark5"]);
             estadoCajaPark5 = filaAnterior["estadoCajaPark5"].ToString();
-
-
-            // Control comida mayores
-            colaComidaMayores = Convert.ToInt32(filaAnterior["colaComidaMayores"]);
-            estadoControlComidaMayores = filaAnterior["estadoControlComidaMayores"].ToString();
 
 
             // Estadísticas
@@ -2290,7 +2288,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones <= numeroSimulacionActual)
+            if (cantidadDeSimulaciones >= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -2437,7 +2435,7 @@ namespace Colas
 
             tiempoLlegada = null;
 
-            proximaLlegada = convertirADecimal(filaAnterior["proximaLlegadaAuto"]);
+            proximaLlegada = convertirADecimal(filaAnterior["proximaLlegada"]);
 
 
             // Fin atención parking
@@ -2821,7 +2819,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones <= numeroSimulacionActual)
+            if (cantidadDeSimulaciones >= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -3180,7 +3178,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones <= numeroSimulacionActual)
+            if (cantidadDeSimulaciones >= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);

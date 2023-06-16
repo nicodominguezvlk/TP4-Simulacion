@@ -121,8 +121,6 @@
             this.estadoControlComida3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colaComida4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoControlComida4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colaComida5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoControlComida5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colaComidaMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoControlComidaMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metrospromedioaparcamiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -301,8 +299,6 @@
             this.estadoControlComida3,
             this.colaComida4,
             this.estadoControlComida4,
-            this.colaComida5,
-            this.estadoControlComida5,
             this.colaComidaMayores,
             this.estadoControlComidaMayores,
             this.metrospromedioaparcamiento,
@@ -1114,24 +1110,6 @@
             this.estadoControlComida4.Name = "estadoControlComida4";
             this.estadoControlComida4.ReadOnly = true;
             // 
-            // colaComida5
-            // 
-            this.colaComida5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colaComida5.DataPropertyName = "colaComida5";
-            this.colaComida5.HeaderText = "Cola Comida5";
-            this.colaComida5.MinimumWidth = 8;
-            this.colaComida5.Name = "colaComida5";
-            this.colaComida5.ReadOnly = true;
-            // 
-            // estadoControlComida5
-            // 
-            this.estadoControlComida5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.estadoControlComida5.DataPropertyName = "estadoControlComida5";
-            this.estadoControlComida5.HeaderText = "Estado ControlComida5";
-            this.estadoControlComida5.MinimumWidth = 8;
-            this.estadoControlComida5.Name = "estadoControlComida5";
-            this.estadoControlComida5.ReadOnly = true;
-            // 
             // colaComidaMayores
             // 
             this.colaComidaMayores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -1363,8 +1341,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoControlComida3;
         private System.Windows.Forms.DataGridViewTextBoxColumn colaComida4;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoControlComida4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colaComida5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoControlComida5;
         private System.Windows.Forms.DataGridViewTextBoxColumn colaComidaMayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoControlComidaMayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn metrospromedioaparcamiento;
