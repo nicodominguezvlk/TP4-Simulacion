@@ -50,11 +50,8 @@
             this.lblParametros = new System.Windows.Forms.Label();
             this.btnSimular = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.pnlArmando = new System.Windows.Forms.Panel();
-            this.lblArmando = new System.Windows.Forms.Label();
             this.pnlTitulo.SuspendLayout();
             this.pnlParametros.SuspendLayout();
-            this.pnlArmando.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -81,7 +78,6 @@
             // pnlParametros
             // 
             this.pnlParametros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.pnlParametros.Controls.Add(this.pnlArmando);
             this.pnlParametros.Controls.Add(this.lblVerHasta);
             this.pnlParametros.Controls.Add(this.txtVerHasta);
             this.pnlParametros.Controls.Add(this.lblVerDesde);
@@ -336,27 +332,6 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // pnlArmando
-            // 
-            this.pnlArmando.BackColor = System.Drawing.Color.Tomato;
-            this.pnlArmando.Controls.Add(this.lblArmando);
-            this.pnlArmando.Location = new System.Drawing.Point(202, 130);
-            this.pnlArmando.Name = "pnlArmando";
-            this.pnlArmando.Size = new System.Drawing.Size(451, 100);
-            this.pnlArmando.TabIndex = 9;
-            this.pnlArmando.Visible = false;
-            // 
-            // lblArmando
-            // 
-            this.lblArmando.AutoSize = true;
-            this.lblArmando.Font = new System.Drawing.Font("Microsoft JhengHei Light", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArmando.ForeColor = System.Drawing.Color.White;
-            this.lblArmando.Location = new System.Drawing.Point(43, 28);
-            this.lblArmando.Name = "lblArmando";
-            this.lblArmando.Size = new System.Drawing.Size(369, 44);
-            this.lblArmando.TabIndex = 1;
-            this.lblArmando.Text = "Armando simulación...";
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,8 +350,6 @@
             this.pnlTitulo.PerformLayout();
             this.pnlParametros.ResumeLayout(false);
             this.pnlParametros.PerformLayout();
-            this.pnlArmando.ResumeLayout(false);
-            this.pnlArmando.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,8 +379,6 @@
         private System.Windows.Forms.TextBox txtVerHasta;
         private System.Windows.Forms.Label lblVerDesde;
         private System.Windows.Forms.TextBox txtVerDesde;
-        private System.Windows.Forms.Panel pnlArmando;
-        private System.Windows.Forms.Label lblArmando;
     }
 }
 

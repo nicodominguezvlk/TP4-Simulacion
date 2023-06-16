@@ -557,7 +557,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones != numeroSimulacionActual)
+            if (cantidadDeSimulaciones <= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada,proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
     proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -935,7 +935,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones != numeroSimulacionActual)
+            if (cantidadDeSimulaciones <= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -1061,6 +1061,7 @@ namespace Colas
             decimal? cantidadPromedioGenteEnColaEntrada;
             decimal? tiempoEntradaDespuesDeEstacionar;
 
+
             // Evento
             evento = "Fin AP";
 
@@ -1093,10 +1094,16 @@ namespace Colas
             proximoFinAP4 = convertirADecimal(filaAnterior["proximoFinAP4"]);
             proximoFinAP5 = convertirADecimal(filaAnterior["proximoFinAP5"]);
 
-            //  Esta variable nos sirve para especificar cual fue el parking que llego a su fin
-            // La usamos para dejar en orden cada evento.
-            // Se utiliza mas abajo en Caja Park
-            int finParking = 0;
+            colaPark1 = Convert.ToInt32(filaAnterior["colaPark1"]);
+            estadoCajaPark1 = filaAnterior["estadoCajaPark1"].ToString();
+            colaPark2 = Convert.ToInt32(filaAnterior["colaPark2"]);
+            estadoCajaPark2 = filaAnterior["estadoCajaPark2"].ToString();
+            colaPark3 = Convert.ToInt32(filaAnterior["colaPark3"]);
+            estadoCajaPark3 = filaAnterior["estadoCajaPark3"].ToString();
+            colaPark4 = Convert.ToInt32(filaAnterior["colaPark4"]);
+            estadoCajaPark4 = filaAnterior["estadoCajaPark4"].ToString();
+            colaPark5 = Convert.ToInt32(filaAnterior["colaPark5"]);
+            estadoCajaPark5 = filaAnterior["estadoCajaPark5"].ToString();
 
             // Este indice se utiliza para encontrar el nuestra list, el auto que sale del parking
             int indiceEncontrado = -1;
@@ -1106,7 +1113,7 @@ namespace Colas
                 if (Convert.ToInt32(filaAnterior["colaPark1"]) > 0)
                 {
                     proximoFinAP1 = generarProximo(reloj, tiempoFinAP);
-                    finParking = 1;
+                    colaPark1--;
 
                     // Recorremos la grid para encontrar el indice del auto
                     for (int i = 0; i < grdAutos.Rows.Count; i++)
@@ -1167,7 +1174,7 @@ namespace Colas
                 if (Convert.ToInt32(filaAnterior["colaPark2"]) > 0)
                 {
                     proximoFinAP2 = generarProximo(reloj, tiempoFinAP);
-                    finParking = 2;
+                    colaPark2--;
 
                     // Recorremos la grid para encontrar el indice del auto
                     for (int i = 0; i < grdAutos.Rows.Count; i++)
@@ -1223,7 +1230,7 @@ namespace Colas
                 if (Convert.ToInt32(filaAnterior["colaPark3"]) > 0)
                 {
                     proximoFinAP3 = generarProximo(reloj, tiempoFinAP);
-                    finParking = 3;
+                    colaPark3--;
                     // Recorremos la grid para encontrar el indice del auto
                     for (int i = 0; i < grdAutos.Rows.Count; i++)
                     {
@@ -1282,7 +1289,7 @@ namespace Colas
                 if (Convert.ToInt32(filaAnterior["colaPark4"]) > 0)
                 {
                     proximoFinAP4 = generarProximo(reloj, tiempoFinAP);
-                    finParking = 4;
+                    colaPark4--;
 
                     // Recorremos la grid para encontrar el indice del auto
                     for (int i = 0; i < grdAutos.Rows.Count; i++)
@@ -1340,7 +1347,7 @@ namespace Colas
                 if (Convert.ToInt32(filaAnterior["colaPark5"]) > 0)
                 {
                     proximoFinAP5 = generarProximo(reloj, tiempoFinAP);
-                    finParking = 5;
+                    colaPark5--;
 
                     // Recorremos la grid para encontrar el indice del auto
                     for (int i = 0; i < grdAutos.Rows.Count; i++)
@@ -1417,73 +1424,6 @@ namespace Colas
             cantidadPersonasNoMayores = null;
 
 
-            // Caja entrada
-            colaEntrada1y2 = Convert.ToInt32(filaAnterior["colaEntrada1y2"]);
-            estadoCajaEntrada1 = filaAnterior["estadoCajaEntrada1"].ToString();
-            estadoCajaEntrada2 = filaAnterior["estadoCajaEntrada2"].ToString();
-
-            colaEntrada3y4 = Convert.ToInt32(filaAnterior["colaEntrada3y4"]);
-            estadoCajaEntrada3 = filaAnterior["estadoCajaEntrada3"].ToString();
-            estadoCajaEntrada4 = filaAnterior["estadoCajaEntrada4"].ToString();
-
-            colaEntrada5y6 = Convert.ToInt32(filaAnterior["colaEntrada5y6"]);
-            estadoCajaEntrada5 = filaAnterior["estadoCajaEntrada5"].ToString();
-            estadoCajaEntrada6 = filaAnterior["estadoCajaEntrada6"].ToString();
-
-            // En el caso de que no hayamos definido topdavia los proximo fin ae y sea el primero, debemos 
-            // ver cual es el que vale null y asignarle el siguiente fin, sino lo mandamos a cola
-            if (filaAnterior["proximoFinAE1"] == null)
-            {
-                proximoFinAE1 = generarProximo(reloj, tiempoFinAE);
-                grdGrupos.Rows.Add("SiendoAt1");
-            }
-            else if (filaAnterior["proximoFinAE2"] == null)
-            {
-                proximoFinAE2 = generarProximo(reloj, tiempoFinAE);
-                grdGrupos.Rows.Add("SiendoAt2");
-            }
-            else if (filaAnterior["proximoFinAE3"] == null)
-            {
-                proximoFinAE3 = generarProximo(reloj, tiempoFinAE);
-                grdGrupos.Rows.Add("SiendoAt3");
-            }
-            else if (filaAnterior["proximoFinAE4"] == null)
-            {
-                proximoFinAE4 = generarProximo(reloj, tiempoFinAE);
-                grdGrupos.Rows.Add("SiendoAt4");
-            }
-            else if (filaAnterior["proximoFinAE5"] == null)
-            {
-                proximoFinAE5 = generarProximo(reloj, tiempoFinAE);
-                grdGrupos.Rows.Add("SiendoAt5");
-            }
-            else if (filaAnterior["proximoFinAE6"] == null)
-            {
-                proximoFinAE6 = generarProximo(reloj, tiempoFinAE);
-                grdGrupos.Rows.Add("SiendoAt6");
-            }
-            else
-            {
-                int? colaMasChica = obtenerColaMenorEntrada(colaEntrada1y2, colaEntrada3y4, colaEntrada5y6);
-
-                if (colaMasChica == colaEntrada1y2)
-                {
-                    colaEntrada1y2++;
-                    grdGrupos.Rows.Add("EnColaEntrada1y2");
-                }
-                else if (colaMasChica == colaEntrada3y4)
-                {
-                    colaEntrada3y4++;
-                    grdGrupos.Rows.Add("EnColaEntrada3y4");
-                }
-                else if (colaMasChica == colaEntrada5y6)
-                {
-                    colaEntrada5y6++;
-                    grdGrupos.Rows.Add("EnColaEntrada5y6");
-                }
-            }
-
-
             // Fin atención control comida
             rndFinAC1 = null;
             tiempoFinAC1 = null;
@@ -1508,40 +1448,6 @@ namespace Colas
             proximoFinACM = null;
 
 
-            // Caja park
-            colaPark1 = Convert.ToInt32(filaAnterior["colaPark1"]);
-            estadoCajaPark1 = filaAnterior["estadoCajaPark1"].ToString();
-            colaPark2 = Convert.ToInt32(filaAnterior["colaPark2"]);
-            estadoCajaPark2 = filaAnterior["estadoCajaPark2"].ToString();
-            colaPark3 = Convert.ToInt32(filaAnterior["colaPark3"]);
-            estadoCajaPark3 = filaAnterior["estadoCajaPark3"].ToString();
-            colaPark4 = Convert.ToInt32(filaAnterior["colaPark4"]);
-            estadoCajaPark4 = filaAnterior["estadoCajaPark4"].ToString();
-            colaPark5 = Convert.ToInt32(filaAnterior["colaPark5"]);
-            estadoCajaPark5 = filaAnterior["estadoCajaPark5"].ToString();
-
-            if (finParking == 1)
-            {
-                colaPark1--;
-            }
-            else if (finParking == 2)
-            {
-                colaPark2--;
-            }
-            else if (finParking == 3)
-            {
-                colaPark3--;
-            }
-            else if (finParking == 4)
-            {
-                colaPark4--;
-            }
-            else if (finParking == 5)
-            {
-                colaPark5--;
-            }
-
-
             // Caja entrada
             colaEntrada1y2 = Convert.ToInt32(filaAnterior["colaEntrada1y2"]);
             estadoCajaEntrada1 = filaAnterior["estadoCajaEntrada1"].ToString();
@@ -1554,6 +1460,64 @@ namespace Colas
             colaEntrada5y6 = Convert.ToInt32(filaAnterior["colaEntrada5y6"]);
             estadoCajaEntrada5 = filaAnterior["estadoCajaEntrada5"].ToString();
             estadoCajaEntrada6 = filaAnterior["estadoCajaEntrada6"].ToString();
+
+
+            if (estadoCajaEntrada1 == "Libre")
+            {
+                proximoFinAE1 = generarProximo(reloj, tiempoFinAE);
+                grdGrupos.Rows.Add("SiendoAt1");
+                estadoCajaEntrada1 = "Ocupado";
+            }
+            else if (estadoCajaEntrada2 == "Libre")
+            {
+                proximoFinAE2 = generarProximo(reloj, tiempoFinAE);
+                grdGrupos.Rows.Add("SiendoAt2");
+                estadoCajaEntrada2 = "Ocupado";
+            }
+            else if (estadoCajaEntrada3 == "Libre")
+            {
+                proximoFinAE3 = generarProximo(reloj, tiempoFinAE);
+                grdGrupos.Rows.Add("SiendoAt3");
+                estadoCajaEntrada3 = "Ocupado";
+            }
+            else if (estadoCajaEntrada4 == "Libre")
+            {
+                proximoFinAE4 = generarProximo(reloj, tiempoFinAE);
+                grdGrupos.Rows.Add("SiendoAt4");
+                estadoCajaEntrada4 = "Ocupado";
+            }
+            else if (estadoCajaEntrada5 == "Libre")
+            {
+                proximoFinAE5 = generarProximo(reloj, tiempoFinAE);
+                grdGrupos.Rows.Add("SiendoAt5");
+                estadoCajaEntrada5 = "Ocupado";
+            }
+            else if (estadoCajaEntrada6 == "Libre")
+            {
+                proximoFinAE6 = generarProximo(reloj, tiempoFinAE);
+                grdGrupos.Rows.Add("SiendoAt6");
+                estadoCajaEntrada6 = "Ocupado";
+            }
+            else
+            {
+                int? colaMasChica = obtenerColaMenorEntrada(colaEntrada1y2, colaEntrada3y4, colaEntrada5y6);
+
+                if (colaMasChica == colaEntrada1y2)
+                {
+                    colaEntrada1y2++;
+                    grdGrupos.Rows.Add("EnColaEntrada1y2");
+                }
+                else if (colaMasChica == colaEntrada3y4)
+                {
+                    colaEntrada3y4++;
+                    grdGrupos.Rows.Add("EnColaEntrada3y4");
+                }
+                else if (colaMasChica == colaEntrada5y6)
+                {
+                    colaEntrada5y6++;
+                    grdGrupos.Rows.Add("EnColaEntrada5y6");
+                }
+            }
 
 
             // Control comida
@@ -1640,7 +1604,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones != numeroSimulacionActual)
+            if (cantidadDeSimulaciones <= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -2326,7 +2290,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones != numeroSimulacionActual)
+            if (cantidadDeSimulaciones <= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -2857,7 +2821,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones != numeroSimulacionActual)
+            if (cantidadDeSimulaciones <= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
@@ -3216,7 +3180,7 @@ namespace Colas
             }
 
             // Determinar el próximo evento
-            if (cantidadDeSimulaciones != numeroSimulacionActual)
+            if (cantidadDeSimulaciones <= numeroSimulacionActual)
             {
                 string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);

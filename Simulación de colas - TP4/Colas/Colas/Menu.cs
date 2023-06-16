@@ -43,13 +43,13 @@ namespace Colas
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
+            btnSimular.Enabled = false;
             if (validarParametros())
             {
-                pnlArmando.Visible = true;
                 Visualizador visualizador = new Visualizador(this, Convert.ToDecimal(txtMediaLLegadaAuto.Text), Convert.ToDecimal(txtMediaAtenciónParking.Text), Convert.ToDecimal(txtMediaAtenciónEntrada.Text), Convert.ToDecimal(txtMediaControlComida.Text), Convert.ToDecimal(txtMediaControlComidaMayores.Text), Convert.ToInt32(txtCantSimulaciones.Text), Convert.ToInt32(txtVerDesde.Text), Convert.ToInt32(txtVerHasta.Text));
                 visualizador.Show();
                 Hide();
-                pnlArmando.Visible = false;
+                btnSimular.Enabled = true;
             }
         }
 
