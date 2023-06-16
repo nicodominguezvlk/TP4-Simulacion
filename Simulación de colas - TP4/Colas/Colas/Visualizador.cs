@@ -164,7 +164,7 @@ namespace Colas
 
             { eventoProximo = "Fin AE"; }
 
-            else if (eventoMin == proximoFinAC1 || eventoMin == proximoFinAC2 || eventoMin == proximoFinAC3)
+            else if (eventoMin == proximoFinAC1 || eventoMin == proximoFinAC2 || eventoMin == proximoFinAC3 || eventoMin == proximoFinAC4)
 
             { eventoProximo = "Fin AC"; }
 
@@ -544,7 +544,7 @@ namespace Colas
             DataRow filaActual = dt.Rows[0];
 
             // Si la simulación está dentro de las que quiere visualizar, agregarla a la grilla
-            if (numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion)
+            if ((numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion) || numeroSimulacionActual == cantidadDeSimulaciones)
             {
                 grdSimulacion.Rows.Add(evento, reloj, rndLlegada, tiempoLlegada, proximaLlegada, rndFinAP, tiempoFinAP, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5,
                 rndFinAE, tiempoFinAE, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, rndCantidadPersonas, cantidadPersonas, rndCantidadPersonasMayores,
@@ -888,7 +888,7 @@ namespace Colas
 
             contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]);
             acumuladorTiempoColaComida = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaComida1 + colaComida2 + colaComida3 + colaComida4 + colaComidaMayores) + convertirADecimal(filaAnterior["acumuladorTiempoColaComida"]);
-            if (contadorGruposCajaEntrada == 0)
+            if (contadorPersonasEnControlComida == 0)
             {
                 tiempoPromedioEnColaComida = 0;
             }
@@ -922,7 +922,7 @@ namespace Colas
             DataRow filaActual = dt.Rows[0];
 
             // Si la simulación está dentro de las que quiere visualizar, agregarla a la grilla
-            if (numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion)
+            if ((numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion) || numeroSimulacionActual == cantidadDeSimulaciones)
             {
                 grdSimulacion.Rows.Add(evento, reloj, rndLlegada, tiempoLlegada, proximaLlegada, rndFinAP, tiempoFinAP, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5,
                 rndFinAE, tiempoFinAE, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, rndCantidadPersonas, cantidadPersonas, rndCantidadPersonasMayores,
@@ -959,6 +959,10 @@ namespace Colas
                 else if (proxEvento == "Fin ACM")
                 {
                     finAtencionComidaMayores(filaActual);
+                }
+                else
+                {
+                    int a = 1 + 1;
                 }
             }
         }
@@ -1427,25 +1431,25 @@ namespace Colas
             // Fin atención control comida
             rndFinAC1 = null;
             tiempoFinAC1 = null;
-            proximoFinAC1 = null;
+            proximoFinAC1 = convertirADecimal(filaAnterior["proximoFinAC1"]);
 
             rndFinAC2 = null;
             tiempoFinAC2 = null;
-            proximoFinAC2 = null;
+            proximoFinAC2 = convertirADecimal(filaAnterior["proximoFinAC2"]); ;
 
             rndFinAC3 = null;
             tiempoFinAC3 = null;
-            proximoFinAC3 = null;
+            proximoFinAC3 = convertirADecimal(filaAnterior["proximoFinAC3"]); ;
 
             rndFinAC4 = null;
             tiempoFinAC4 = null;
-            proximoFinAC4 = null;
+            proximoFinAC4 = convertirADecimal(filaAnterior["proximoFinAC4"]); ;
 
 
             // Fin atención control comida mayores
             rndFinACM = null;
             tiempoFinACM = null;
-            proximoFinACM = null;
+            proximoFinACM = convertirADecimal(filaAnterior["proximoFinACM"]); ;
 
 
             // Caja entrada
@@ -1557,7 +1561,7 @@ namespace Colas
 
             contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]);
             acumuladorTiempoColaComida = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaComida1 + colaComida2 + colaComida3 + colaComida4 + colaComidaMayores) + convertirADecimal(filaAnterior["acumuladorTiempoColaComida"]);
-            if (contadorGruposCajaEntrada == 0)
+            if (contadorPersonasEnControlComida == 0)
             {
                 tiempoPromedioEnColaComida = 0;
             }
@@ -1591,7 +1595,7 @@ namespace Colas
             DataRow filaActual = dt.Rows[0];
 
             // Si la simulación está dentro de las que quiere visualizar, agregarla a la grilla
-            if (numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion)
+            if ((numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion) || numeroSimulacionActual == cantidadDeSimulaciones)
             {
                 grdSimulacion.Rows.Add(evento, reloj, rndLlegada, tiempoLlegada, proximaLlegada, rndFinAP, tiempoFinAP, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5,
                 rndFinAE, tiempoFinAE, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, rndCantidadPersonas, cantidadPersonas, rndCantidadPersonasMayores,
@@ -1628,6 +1632,10 @@ namespace Colas
                 else if (proxEvento == "Fin ACM")
                 {
                     finAtencionComidaMayores(filaActual);
+                }
+                else
+                {
+                    int a = 1 + 1;
                 }
             }
         }
@@ -1847,6 +1855,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdGrupos.Rows.RemoveAt(indiceFinAE);
                 }
             }
             else if (proximoFinAE2 == reloj)
@@ -1893,6 +1902,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdGrupos.Rows.RemoveAt(indiceFinAE);
                 }
             }
             else if (proximoFinAE3 == reloj)
@@ -1939,6 +1949,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdGrupos.Rows.RemoveAt(indiceFinAE);
                 }
             }
             else if (proximoFinAE4 == reloj)
@@ -1985,6 +1996,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdGrupos.Rows.RemoveAt(indiceFinAE);
                 }
             }
             else if (proximoFinAE5 == reloj)
@@ -2031,6 +2043,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdGrupos.Rows.RemoveAt(indiceFinAE);
                 }
             }
             else if (proximoFinAE6 == reloj)
@@ -2077,6 +2090,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdGrupos.Rows.RemoveAt(indiceFinAE);
                 }
             }
 
@@ -2092,7 +2106,6 @@ namespace Colas
             {
                 colaEntrada5y6--;
             }
-
 
 
             // Fin atención control comida y Control Comida
@@ -2111,49 +2124,50 @@ namespace Colas
 
             colaComida1 = Convert.ToInt32(filaAnterior["colaComida1"]);
             estadoControlComida1 = filaAnterior["estadoControlComida1"].ToString();
-
             colaComida2 = Convert.ToInt32(filaAnterior["colaComida2"]);
             estadoControlComida2 = filaAnterior["estadoControlComida2"].ToString();
-
             colaComida3 = Convert.ToInt32(filaAnterior["colaComida3"]);
             estadoControlComida3 = filaAnterior["estadoControlComida3"].ToString();
-
             colaComida4 = Convert.ToInt32(filaAnterior["colaComida4"]);
             estadoControlComida4 = filaAnterior["estadoControlComida4"].ToString();
 
             int? personasPorAtender = cantidadPersonasNoMayores;
 
-            if (filaAnterior["estadoControlComida1"].ToString() == "Libre")
+            if ((filaAnterior["estadoControlComida1"].ToString() == "Libre") && personasPorAtender > 0)
             {
                 rndFinAC1 = generarRandom();
                 tiempoFinAC1 = generarTiempoExponencial(rndFinAC1, mediaAC);
                 proximoFinAC1 = generarProximo(reloj, tiempoFinAC1);
                 estadoControlComida1 = "Ocupado";
                 personasPorAtender--;
+                grdPersonas.Rows.Add("SiendoAt1");
             }
-            if (filaAnterior["estadoControlComida2"].ToString() == "Libre")
+            if ((filaAnterior["estadoControlComida2"].ToString() == "Libre") && personasPorAtender > 0)
             {
                 rndFinAC2 = generarRandom();
                 tiempoFinAC2 = generarTiempoExponencial(rndFinAC2, mediaAC);
                 proximoFinAC2 = generarProximo(reloj, tiempoFinAC2);
                 estadoControlComida2 = "Ocupado";
                 personasPorAtender--;
+                grdPersonas.Rows.Add("SiendoAt2");
             }
-            if (filaAnterior["estadoControlComida3"].ToString() == "Libre")
+            if ((filaAnterior["estadoControlComida3"].ToString() == "Libre") && personasPorAtender > 0)
             {
                 rndFinAC3 = generarRandom();
                 tiempoFinAC3 = generarTiempoExponencial(rndFinAC3, mediaAC);
                 proximoFinAC3 = generarProximo(reloj, tiempoFinAC3);
                 estadoControlComida3 = "Ocupado";
                 personasPorAtender--;
+                grdPersonas.Rows.Add("SiendoAt3");
             }
-            if (filaAnterior["estadoControlComida4"].ToString() == "Libre")
+            if ((filaAnterior["estadoControlComida4"].ToString() == "Libre") && personasPorAtender > 0)
             {
                 rndFinAC4 = generarRandom();
                 tiempoFinAC4 = generarTiempoExponencial(rndFinAC4, mediaAC);
                 proximoFinAC4 = generarProximo(reloj, tiempoFinAC4);
                 estadoControlComida4 = "Ocupado";
                 personasPorAtender--;
+                grdPersonas.Rows.Add("SiendoAt4");
             }
 
             while (personasPorAtender > 0)
@@ -2182,7 +2196,7 @@ namespace Colas
                 }
                 personasPorAtender--;
             }
-
+            
 
             // Fin atención control comida mayores y Control Comida Mayores
             rndFinACM = null;
@@ -2194,19 +2208,21 @@ namespace Colas
 
             int? mayoresPorAtender = cantidadPersonasMayores;
 
-            if (filaAnterior["estadoControlComidaMayores"].ToString() == "Libre")
+            if ((filaAnterior["estadoControlComidaMayores"].ToString() == "Libre") && mayoresPorAtender > 0)
             {
                 rndFinACM = generarRandom();
                 tiempoFinACM = generarTiempoExponencial(rndFinACM, mediaACM);
                 proximoFinACM = generarProximo(reloj, tiempoFinACM);
                 estadoControlComidaMayores = "Ocupado";
                 mayoresPorAtender--;
+                grdPersonasMayores.Rows.Add("SiendoAt");
             }
 
             while (mayoresPorAtender > 0)
             {
                 colaComidaMayores++;
                 mayoresPorAtender--;
+                grdPersonasMayores.Rows.Add("EnColaComidaMayores");
             }
 
 
@@ -2228,7 +2244,7 @@ namespace Colas
             acumuladorTiempoColaParking = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaPark1 + colaPark2 + colaPark3 + colaPark4 + colaPark5) + convertirADecimal(filaAnterior["acumuladorTiempoColaParking"]);
             cantidadPromedioAutosEnColaPark = acumuladorTiempoColaParking / reloj;
 
-            contadorGruposCajaEntrada = Convert.ToInt32(filaAnterior["contadorGruposCajaEntrada"]);
+            contadorGruposCajaEntrada = Convert.ToInt32(filaAnterior["contadorGruposCajaEntrada"]) + 1;
             acumuladorTiempoColaEntrada = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaEntrada1y2 + colaEntrada3y4 + colaEntrada5y6) + convertirADecimal(filaAnterior["acumuladorTiempoColaEntrada"]);
             if (contadorGruposCajaEntrada == 0)
             {
@@ -2241,7 +2257,7 @@ namespace Colas
 
             contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]);
             acumuladorTiempoColaComida = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaComida1 + colaComida2 + colaComida3 + colaComida4 + colaComidaMayores) + convertirADecimal(filaAnterior["acumuladorTiempoColaComida"]);
-            if (contadorGruposCajaEntrada == 0)
+            if (contadorPersonasEnControlComida == 0)
             {
                 tiempoPromedioEnColaComida = 0;
             }
@@ -2275,7 +2291,7 @@ namespace Colas
             DataRow filaActual = dt.Rows[0];
 
             // Si la simulación está dentro de las que quiere visualizar, agregarla a la grilla
-            if (numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion)
+            if ((numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion) || numeroSimulacionActual == cantidadDeSimulaciones)
             {
                 grdSimulacion.Rows.Add(evento, reloj, rndLlegada, tiempoLlegada, proximaLlegada, rndFinAP, tiempoFinAP, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5,
                 rndFinAE, tiempoFinAE, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, rndCantidadPersonas, cantidadPersonas, rndCantidadPersonasMayores,
@@ -2312,6 +2328,10 @@ namespace Colas
                 else if (proxEvento == "Fin ACM")
                 {
                     finAtencionComidaMayores(filaActual);
+                }
+                else
+                {
+                    int a = 1 + 1;
                 }
             }
 
@@ -2472,6 +2492,7 @@ namespace Colas
 
             cantidadPersonasNoMayores = null;
 
+
             // Control comida
             colaComida1 = Convert.ToInt32(filaAnterior["colaComida1"]);
             estadoControlComida1 = filaAnterior["estadoControlComida1"].ToString();
@@ -2484,6 +2505,7 @@ namespace Colas
 
             colaComida4 = Convert.ToInt32(filaAnterior["colaComida4"]);
             estadoControlComida4 = filaAnterior["estadoControlComida4"].ToString();
+
 
             // Fin atención control comida
             rndFinAC1 = null;
@@ -2512,7 +2534,7 @@ namespace Colas
                     rndFinAC1 = generarRandom();
                     tiempoFinAC1 = generarTiempoExponencial(rndFinAC1, mediaAC);
                     proximoFinAC1 = generarProximo(reloj, tiempoFinAC1);
-                    finComida= 1;
+                    finComida = 1;
 
                     // Recorremos la grid para encontrar el indice del grupo
                     for (int i = 0; i < grdPersonas.Rows.Count; i++)
@@ -2522,7 +2544,7 @@ namespace Colas
                         {
                             indiceFinAC = i;
                             break;
-                        }
+                        } 
                     }
 
                     // Elimino el objeto
@@ -2551,6 +2573,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdPersonas.Rows.RemoveAt(indiceFinAC);
                 }
             }
             if (proximoFinAC2 == reloj)
@@ -2599,6 +2622,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdPersonas.Rows.RemoveAt(indiceFinAC);
                 }
             }
             if (proximoFinAC3 == reloj)
@@ -2647,6 +2671,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdPersonas.Rows.RemoveAt(indiceFinAC);
                 }
             }
             if (proximoFinAC4 == reloj)
@@ -2695,6 +2720,7 @@ namespace Colas
                             break;
                         }
                     }
+                    grdPersonas.Rows.RemoveAt(indiceFinAC);
                 }
             }
 
@@ -2719,7 +2745,7 @@ namespace Colas
             // Fin atención control comida mayores
             rndFinACM = null;
             tiempoFinACM = null;
-            proximoFinACM = null;
+            proximoFinACM = convertirADecimal(filaAnterior["proximoFinACM"]);
 
 
             // Caja park
@@ -2770,9 +2796,9 @@ namespace Colas
                 tiempoPromedioEnColaEntrada = acumuladorTiempoColaEntrada / contadorGruposCajaEntrada;
             }
 
-            contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]);
+            contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]) + 1;
             acumuladorTiempoColaComida = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaComida1 + colaComida2 + colaComida3 + colaComida4 + colaComidaMayores) + convertirADecimal(filaAnterior["acumuladorTiempoColaComida"]);
-            if (contadorGruposCajaEntrada == 0)
+            if (contadorPersonasEnControlComida == 0)
             {
                 tiempoPromedioEnColaComida = 0;
             }
@@ -2806,7 +2832,7 @@ namespace Colas
             DataRow filaActual = dt.Rows[0];
 
             // Si la simulación está dentro de las que quiere visualizar, agregarla a la grilla
-            if (numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion)
+            if ((numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion) || numeroSimulacionActual == cantidadDeSimulaciones)
             {
                 grdSimulacion.Rows.Add(evento, reloj, rndLlegada, tiempoLlegada, proximaLlegada, rndFinAP, tiempoFinAP, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5,
                 rndFinAE, tiempoFinAE, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, rndCantidadPersonas, cantidadPersonas, rndCantidadPersonasMayores,
@@ -2843,6 +2869,10 @@ namespace Colas
                 else if (proxEvento == "Fin ACM")
                 {
                     finAtencionComidaMayores(filaActual);
+                }
+                else
+                {
+                    int a = 1 + 1;
                 }
             }
 
@@ -2962,7 +2992,6 @@ namespace Colas
                convertirADecimal(filaAnterior["proximoFinACM"]));
 
 
-
             // Llegada auto
             rndLlegada = null;
 
@@ -3028,11 +3057,51 @@ namespace Colas
             rndFinACM = null;
             tiempoFinACM = null;
             proximoFinACM = null;
+            int indiceFinACM = -1;
+
             if (Convert.ToInt32(filaAnterior["colaComidaMayores"]) > 0)
             {
                 rndFinACM = generarRandom();
                 tiempoFinACM = generarTiempoExponencial(rndFinACM, mediaACM);
                 proximoFinACM = generarProximo(reloj, tiempoFinACM);
+
+                // Recorremos la grid para encontrar el indice del grupo
+                for (int i = 0; i < grdPersonasMayores.Rows.Count; i++)
+                {
+                    DataGridViewRow fila = grdPersonasMayores.Rows[i];
+                    if (fila.Cells[0].Value.ToString() == "SiendoAt")
+                    {
+                        indiceFinACM = i;
+                        break;
+                    }
+                }
+
+                // Elimino el objeto
+                grdPersonasMayores.Rows.RemoveAt(indiceFinACM);
+
+                // Recorro y cambio el estado de Encola a SiendoAtendido
+                foreach (DataGridViewRow fila in grdPersonasMayores.Rows)
+                {
+                    if (fila.Cells[0].Value.ToString() == "EnColaComidaMayores")
+                    {
+                        fila.Cells[0].Value = "SiendoAt";
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < grdPersonasMayores.Rows.Count; i++)
+                {
+                    DataGridViewRow fila = grdPersonasMayores.Rows[i];
+                    if (fila.Cells[0].Value.ToString() == "SiendoAt")
+                    {
+                        indiceFinACM = i;
+                        break;
+                    }
+                }
+                ;
+                grdPersonasMayores.Rows.RemoveAt(indiceFinACM);
             }
 
 
@@ -3106,9 +3175,9 @@ namespace Colas
                 tiempoPromedioEnColaEntrada = acumuladorTiempoColaEntrada / contadorGruposCajaEntrada;
             }
 
-            contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]);
+            contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]) + 1;
             acumuladorTiempoColaComida = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaComida1 + colaComida2 + colaComida3 + colaComida4 + colaComidaMayores) + convertirADecimal(filaAnterior["acumuladorTiempoColaComida"]);
-            if (contadorGruposCajaEntrada == 0)
+            if (contadorPersonasEnControlComida == 0)
             {
                 tiempoPromedioEnColaComida = 0;
             }
@@ -3132,7 +3201,7 @@ namespace Colas
                     break;
                 }
             }
-            grdPersonasMayores.Rows.Remove(borrar);
+            //grdPersonasMayores.Rows.Remove(borrar); REVISAR
             if (colaComidaMayores != 0)
             {
                 foreach (DataGridViewRow row in grdPersonasMayores.Rows)
@@ -3165,7 +3234,7 @@ namespace Colas
             DataRow filaActual = dt.Rows[0];
 
             // Si la simulación está dentro de las que quiere visualizar, agregarla a la grilla
-            if (numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion)
+            if ((numeroSimulacionActual >= verDesdeSimulacion && numeroSimulacionActual < verHastaSimulacion) || numeroSimulacionActual == cantidadDeSimulaciones)
             {
                 grdSimulacion.Rows.Add(evento, reloj, rndLlegada, tiempoLlegada, proximaLlegada, rndFinAP, tiempoFinAP, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5,
                 rndFinAE, tiempoFinAE, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, rndCantidadPersonas, cantidadPersonas, rndCantidadPersonasMayores,
@@ -3203,6 +3272,10 @@ namespace Colas
                 {
                     finAtencionComidaMayores(filaActual);
                 }
+                else
+                {
+                    int a = 1 + 1;
+                }
             }
         }
 
@@ -3215,6 +3288,13 @@ namespace Colas
         {
             menu.Show();
             Close();
+        }
+
+        private void btnInformación_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow ultimaFila = grdSimulacion.Rows[grdSimulacion.Rows.Count - 1];
+            Metricas metricas = new Metricas(this, ultimaFila);
+            metricas.ShowDialog();
         }
     }
 }

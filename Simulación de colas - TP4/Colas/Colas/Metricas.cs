@@ -20,18 +20,17 @@ namespace Colas
         decimal? tiempoEntrada;
         decimal? gentePromCE;
         decimal? entradaDE;
-        public Metricas(Visualizador visualizador, decimal? metrosPromedioAparcamiento, decimal? cantPromAutosColaPark, decimal? tiempoPromColaEntrada, decimal? tiempoPromColaComida, decimal? tiempoConseguirEntrada, 
-                        decimal? cantPromGenteColaEntrada,decimal? tiempoEntradaDespuesEstacionar)
+        public Metricas(Visualizador visualizador, DataGridViewRow ultimaFila)
         {
             InitializeComponent();
             this.visualizador = visualizador;
-            metrosAparc = metrosPromedioAparcamiento;
-            cantAutosCP = cantPromAutosColaPark;
-            tiempoPromCE = tiempoPromColaEntrada;
-            tiempoPromCC = tiempoPromColaComida;
-            tiempoEntrada = tiempoConseguirEntrada;
-            gentePromCE = cantPromGenteColaEntrada;
-            entradaDE = tiempoEntradaDespuesEstacionar;
+            metrosAparc = Convert.ToDecimal(ultimaFila.Cells["metrosPromedioNecesariosParaAparcamiento"].Value);
+            cantAutosCP = Convert.ToDecimal(ultimaFila.Cells["cantidadPromedioAutosEnColaPark"].Value);
+            tiempoPromCE = Convert.ToDecimal(ultimaFila.Cells["tiempoPromedioEnColaEntrada"].Value);
+            tiempoPromCC = Convert.ToDecimal(ultimaFila.Cells["tiempoPromedioEnColaComida"].Value);
+            tiempoEntrada = Convert.ToDecimal(ultimaFila.Cells["tiempoEnConseguirEntrada"].Value);
+            gentePromCE = Convert.ToDecimal(ultimaFila.Cells["cantidadPromedioGenteEnColaEntrada"].Value);
+            entradaDE = Convert.ToDecimal(ultimaFila.Cells["tiempoEntradaDespuesDeEstacionar"].Value); 
 
             rellenarMetricas();
         }

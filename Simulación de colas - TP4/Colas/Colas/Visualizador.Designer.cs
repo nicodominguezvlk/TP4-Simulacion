@@ -123,16 +123,18 @@
             this.estadoControlComida4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colaComidaMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoControlComidaMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metrospromedioaparcamiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metrosPromedioNecesariosParaAparcamiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acumuladorTiempoColaParking = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantPromAutosColaPark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contGruposCajaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadPromedioAutosEnColaPark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contadorGruposCajaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acumuladorTiempoColaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPromedioColaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contadorPersonasControlComida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoConseguirEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadPromedioGenteColaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoEntradaDespuesEstacionar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoPromedioEnColaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contadorPersonasEnControlComida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acumuladorTiempoColaComida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoPromedioEnColaComida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoEnConseguirEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadPromedioGenteEnColaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoEntradaDespuesDeEstacionar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picX)).BeginInit();
@@ -301,16 +303,18 @@
             this.estadoControlComida4,
             this.colaComidaMayores,
             this.estadoControlComidaMayores,
-            this.metrospromedioaparcamiento,
+            this.metrosPromedioNecesariosParaAparcamiento,
             this.acumuladorTiempoColaParking,
-            this.cantPromAutosColaPark,
-            this.contGruposCajaEntrada,
+            this.cantidadPromedioAutosEnColaPark,
+            this.contadorGruposCajaEntrada,
             this.acumuladorTiempoColaEntrada,
-            this.tiempoPromedioColaEntrada,
-            this.contadorPersonasControlComida,
-            this.tiempoConseguirEntrada,
-            this.cantidadPromedioGenteColaEntrada,
-            this.tiempoEntradaDespuesEstacionar});
+            this.tiempoPromedioEnColaEntrada,
+            this.contadorPersonasEnControlComida,
+            this.acumuladorTiempoColaComida,
+            this.tiempoPromedioEnColaComida,
+            this.tiempoEnConseguirEntrada,
+            this.cantidadPromedioGenteEnColaEntrada,
+            this.tiempoEntradaDespuesDeEstacionar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -354,6 +358,7 @@
             this.btnInformación.TabIndex = 9;
             this.btnInformación.Text = "Ver información";
             this.btnInformación.UseVisualStyleBackColor = false;
+            this.btnInformación.Click += new System.EventHandler(this.btnInformación_Click);
             // 
             // tabControl
             // 
@@ -1128,14 +1133,14 @@
             this.estadoControlComidaMayores.Name = "estadoControlComidaMayores";
             this.estadoControlComidaMayores.ReadOnly = true;
             // 
-            // metrospromedioaparcamiento
+            // metrosPromedioNecesariosParaAparcamiento
             // 
-            this.metrospromedioaparcamiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.metrospromedioaparcamiento.DataPropertyName = "metrospromedioaparcamiento";
-            this.metrospromedioaparcamiento.HeaderText = "Metros prom para aparcamiento";
-            this.metrospromedioaparcamiento.MinimumWidth = 8;
-            this.metrospromedioaparcamiento.Name = "metrospromedioaparcamiento";
-            this.metrospromedioaparcamiento.ReadOnly = true;
+            this.metrosPromedioNecesariosParaAparcamiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.metrosPromedioNecesariosParaAparcamiento.DataPropertyName = "metrosPromedioNecesariosParaAparcamiento";
+            this.metrosPromedioNecesariosParaAparcamiento.HeaderText = "Metros prom para aparcamiento";
+            this.metrosPromedioNecesariosParaAparcamiento.MinimumWidth = 8;
+            this.metrosPromedioNecesariosParaAparcamiento.Name = "metrosPromedioNecesariosParaAparcamiento";
+            this.metrosPromedioNecesariosParaAparcamiento.ReadOnly = true;
             // 
             // acumuladorTiempoColaParking
             // 
@@ -1144,23 +1149,23 @@
             this.acumuladorTiempoColaParking.Name = "acumuladorTiempoColaParking";
             this.acumuladorTiempoColaParking.ReadOnly = true;
             // 
-            // cantPromAutosColaPark
+            // cantidadPromedioAutosEnColaPark
             // 
-            this.cantPromAutosColaPark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cantPromAutosColaPark.DataPropertyName = "cantPromAutosColaPark";
-            this.cantPromAutosColaPark.HeaderText = "Cant Prom Autos ColaPark";
-            this.cantPromAutosColaPark.MinimumWidth = 8;
-            this.cantPromAutosColaPark.Name = "cantPromAutosColaPark";
-            this.cantPromAutosColaPark.ReadOnly = true;
+            this.cantidadPromedioAutosEnColaPark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cantidadPromedioAutosEnColaPark.DataPropertyName = "cantidadPromedioAutosEnColaPark";
+            this.cantidadPromedioAutosEnColaPark.HeaderText = "Cant Prom Autos ColaPark";
+            this.cantidadPromedioAutosEnColaPark.MinimumWidth = 8;
+            this.cantidadPromedioAutosEnColaPark.Name = "cantidadPromedioAutosEnColaPark";
+            this.cantidadPromedioAutosEnColaPark.ReadOnly = true;
             // 
-            // contGruposCajaEntrada
+            // contadorGruposCajaEntrada
             // 
-            this.contGruposCajaEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.contGruposCajaEntrada.DataPropertyName = "contGruposCajaEntrada";
-            this.contGruposCajaEntrada.HeaderText = "Cont Grupos CajaEntrada";
-            this.contGruposCajaEntrada.MinimumWidth = 8;
-            this.contGruposCajaEntrada.Name = "contGruposCajaEntrada";
-            this.contGruposCajaEntrada.ReadOnly = true;
+            this.contadorGruposCajaEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.contadorGruposCajaEntrada.DataPropertyName = "contadorGruposCajaEntrada";
+            this.contadorGruposCajaEntrada.HeaderText = "Cont Grupos CajaEntrada";
+            this.contadorGruposCajaEntrada.MinimumWidth = 8;
+            this.contadorGruposCajaEntrada.Name = "contadorGruposCajaEntrada";
+            this.contadorGruposCajaEntrada.ReadOnly = true;
             // 
             // acumuladorTiempoColaEntrada
             // 
@@ -1171,50 +1176,63 @@
             this.acumuladorTiempoColaEntrada.Name = "acumuladorTiempoColaEntrada";
             this.acumuladorTiempoColaEntrada.ReadOnly = true;
             // 
-            // tiempoPromedioColaEntrada
+            // tiempoPromedioEnColaEntrada
             // 
-            this.tiempoPromedioColaEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.tiempoPromedioColaEntrada.DataPropertyName = "tiempoPromedioColaEntrada";
-            this.tiempoPromedioColaEntrada.HeaderText = "Tiempo Promedio ColaEntrada";
-            this.tiempoPromedioColaEntrada.MinimumWidth = 8;
-            this.tiempoPromedioColaEntrada.Name = "tiempoPromedioColaEntrada";
-            this.tiempoPromedioColaEntrada.ReadOnly = true;
+            this.tiempoPromedioEnColaEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.tiempoPromedioEnColaEntrada.DataPropertyName = "tiempoPromedioEnColaEntrada";
+            this.tiempoPromedioEnColaEntrada.HeaderText = "Tiempo Promedio ColaEntrada";
+            this.tiempoPromedioEnColaEntrada.MinimumWidth = 8;
+            this.tiempoPromedioEnColaEntrada.Name = "tiempoPromedioEnColaEntrada";
+            this.tiempoPromedioEnColaEntrada.ReadOnly = true;
             // 
-            // contadorPersonasControlComida
+            // contadorPersonasEnControlComida
             // 
-            this.contadorPersonasControlComida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.contadorPersonasControlComida.DataPropertyName = "contadorPersonasControlComida";
-            this.contadorPersonasControlComida.HeaderText = "Cont Personas ControlComida";
-            this.contadorPersonasControlComida.MinimumWidth = 8;
-            this.contadorPersonasControlComida.Name = "contadorPersonasControlComida";
-            this.contadorPersonasControlComida.ReadOnly = true;
+            this.contadorPersonasEnControlComida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.contadorPersonasEnControlComida.DataPropertyName = "contadorPersonasEnControlComida";
+            this.contadorPersonasEnControlComida.HeaderText = "Cont Personas ControlComida";
+            this.contadorPersonasEnControlComida.MinimumWidth = 8;
+            this.contadorPersonasEnControlComida.Name = "contadorPersonasEnControlComida";
+            this.contadorPersonasEnControlComida.ReadOnly = true;
             // 
-            // tiempoConseguirEntrada
+            // acumuladorTiempoColaComida
             // 
-            this.tiempoConseguirEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.tiempoConseguirEntrada.DataPropertyName = "tiempoConseguirEntrada";
-            this.tiempoConseguirEntrada.HeaderText = "Tiempo en conseguir entrada";
-            this.tiempoConseguirEntrada.MinimumWidth = 8;
-            this.tiempoConseguirEntrada.Name = "tiempoConseguirEntrada";
-            this.tiempoConseguirEntrada.ReadOnly = true;
+            this.acumuladorTiempoColaComida.DataPropertyName = "acumuladorTiempoColaComida";
+            this.acumuladorTiempoColaComida.HeaderText = "Acum Tiempo ControlComida";
+            this.acumuladorTiempoColaComida.Name = "acumuladorTiempoColaComida";
+            this.acumuladorTiempoColaComida.ReadOnly = true;
             // 
-            // cantidadPromedioGenteColaEntrada
+            // tiempoPromedioEnColaComida
             // 
-            this.cantidadPromedioGenteColaEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cantidadPromedioGenteColaEntrada.DataPropertyName = "cantidadPromedioGenteColaEntrada";
-            this.cantidadPromedioGenteColaEntrada.HeaderText = "Cant prom gente en ColaEntrada";
-            this.cantidadPromedioGenteColaEntrada.MinimumWidth = 8;
-            this.cantidadPromedioGenteColaEntrada.Name = "cantidadPromedioGenteColaEntrada";
-            this.cantidadPromedioGenteColaEntrada.ReadOnly = true;
+            this.tiempoPromedioEnColaComida.HeaderText = "Tiempo Promedio en ColaComida";
+            this.tiempoPromedioEnColaComida.Name = "tiempoPromedioEnColaComida";
+            this.tiempoPromedioEnColaComida.ReadOnly = true;
             // 
-            // tiempoEntradaDespuesEstacionar
+            // tiempoEnConseguirEntrada
             // 
-            this.tiempoEntradaDespuesEstacionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.tiempoEntradaDespuesEstacionar.DataPropertyName = "tiempoEntradaDespuesEstacionar";
-            this.tiempoEntradaDespuesEstacionar.HeaderText = "Tiempo de entrada después de estacionar";
-            this.tiempoEntradaDespuesEstacionar.MinimumWidth = 8;
-            this.tiempoEntradaDespuesEstacionar.Name = "tiempoEntradaDespuesEstacionar";
-            this.tiempoEntradaDespuesEstacionar.ReadOnly = true;
+            this.tiempoEnConseguirEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.tiempoEnConseguirEntrada.DataPropertyName = "tiempoEnConseguirEntrada";
+            this.tiempoEnConseguirEntrada.HeaderText = "Tiempo en conseguir entrada";
+            this.tiempoEnConseguirEntrada.MinimumWidth = 8;
+            this.tiempoEnConseguirEntrada.Name = "tiempoEnConseguirEntrada";
+            this.tiempoEnConseguirEntrada.ReadOnly = true;
+            // 
+            // cantidadPromedioGenteEnColaEntrada
+            // 
+            this.cantidadPromedioGenteEnColaEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cantidadPromedioGenteEnColaEntrada.DataPropertyName = "cantidadPromedioGenteEnColaEntrada";
+            this.cantidadPromedioGenteEnColaEntrada.HeaderText = "Cant prom gente en ColaEntrada";
+            this.cantidadPromedioGenteEnColaEntrada.MinimumWidth = 8;
+            this.cantidadPromedioGenteEnColaEntrada.Name = "cantidadPromedioGenteEnColaEntrada";
+            this.cantidadPromedioGenteEnColaEntrada.ReadOnly = true;
+            // 
+            // tiempoEntradaDespuesDeEstacionar
+            // 
+            this.tiempoEntradaDespuesDeEstacionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.tiempoEntradaDespuesDeEstacionar.DataPropertyName = "tiempoEntradaDespuesDeEstacionar";
+            this.tiempoEntradaDespuesDeEstacionar.HeaderText = "Tiempo de entrada después de estacionar";
+            this.tiempoEntradaDespuesDeEstacionar.MinimumWidth = 8;
+            this.tiempoEntradaDespuesDeEstacionar.Name = "tiempoEntradaDespuesDeEstacionar";
+            this.tiempoEntradaDespuesDeEstacionar.ReadOnly = true;
             // 
             // Visualizador
             // 
@@ -1343,15 +1361,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoControlComida4;
         private System.Windows.Forms.DataGridViewTextBoxColumn colaComidaMayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoControlComidaMayores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn metrospromedioaparcamiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn metrosPromedioNecesariosParaAparcamiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn acumuladorTiempoColaParking;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantPromAutosColaPark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contGruposCajaEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadPromedioAutosEnColaPark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contadorGruposCajaEntrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn acumuladorTiempoColaEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromedioColaEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contadorPersonasControlComida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoConseguirEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadPromedioGenteColaEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoEntradaDespuesEstacionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromedioEnColaEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contadorPersonasEnControlComida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn acumuladorTiempoColaComida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromedioEnColaComida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoEnConseguirEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadPromedioGenteEnColaEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoEntradaDespuesDeEstacionar;
     }
 }
