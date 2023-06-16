@@ -92,6 +92,16 @@ namespace Colas
 
 
         // Métodos auxiliares
+        public decimal? convertirADecimal(Object valor)
+        {
+            if (valor == DBNull.Value)
+            {
+                valor = 0;
+            }
+
+            return Convert.ToDecimal(valor);
+        }
+
         public int? obtenerColaMenorParking(int? colaPark1, int? colaPark2, int? colaPark3, int? colaPark4, int? colaPark5)
         {
             List<int?> colas = new List<int?> { colaPark1, colaPark2, colaPark3, colaPark4, colaPark5 };
@@ -113,13 +123,13 @@ namespace Colas
             return menorColaComida;
         }
 
-        public string obtenerProximoEvento(decimal? proximoFinAP1, decimal? proximoFinAP2, decimal? proximoFinAP3, decimal? proximoFinAP4, decimal? proximoFinAP5, decimal? proximoFinAE1, decimal? proximoFinAE2, decimal? proximoFinAE3, decimal? proximoFinAE4, decimal? proximoFinAE5, decimal? proximoFinAE6,
+        public string obtenerProximoEvento(decimal? proximaLlegada, decimal? proximoFinAP1, decimal? proximoFinAP2, decimal? proximoFinAP3, decimal? proximoFinAP4, decimal? proximoFinAP5, decimal? proximoFinAE1, decimal? proximoFinAE2, decimal? proximoFinAE3, decimal? proximoFinAE4, decimal? proximoFinAE5, decimal? proximoFinAE6,
                 decimal? proximoFinAC1, decimal? proximoFinAC2, decimal? proximoFinAC3, decimal? proximoFinAC4, decimal? proximoFinACM)
         {
-            List<decimal?> ListaFin = new List<decimal?> { proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM };
+            List<decimal?> ListaFin = new List<decimal?> {proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM };
             List<decimal?> ListaFinNueva = new List<decimal?>();
 
-            // Si los eventos son nulos, les asigno un valor alto para que no los tenga en cuenta en la comparación
+            // Si los eventos son nulos, 
             for (int i = 0; i < ListaFin.Count; i++)
             {
                 if (ListaFin[i] != null)
@@ -132,6 +142,10 @@ namespace Colas
             string eventoProximo = "";
 
             // Buscar evento mínimo (si da error, ponemos Convert.ToDecimal a todos los proxFin..)
+            if(eventoMin == proximaLlegada)
+            {
+                eventoProximo = "LL Auto";
+            }
             if (eventoMin == proximoFinAP1 || eventoMin == proximoFinAP2 || eventoMin == proximoFinAP3 || eventoMin == proximoFinAP4 || eventoMin == proximoFinAP5)
 
             { eventoProximo = "Fin AP"; }
@@ -151,6 +165,24 @@ namespace Colas
             return eventoProximo;
         }
 
+        public decimal? obtenerHoraProxEvento(decimal? proximaLlegada, decimal? proximoFinAP1, decimal? proximoFinAP2, decimal? proximoFinAP3, decimal? proximoFinAP4, decimal? proximoFinAP5, decimal? proximoFinAE1, decimal? proximoFinAE2, decimal? proximoFinAE3, decimal? proximoFinAE4, decimal? proximoFinAE5, decimal? proximoFinAE6,
+                decimal? proximoFinAC1, decimal? proximoFinAC2, decimal? proximoFinAC3, decimal? proximoFinAC4, decimal? proximoFinACM)
+        {
+            List<decimal?> ListaFin = new List<decimal?> { proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6, proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM };
+            List<decimal?> ListaFinNueva = new List<decimal?>();
+
+            // Si los eventos son nulos, 
+            for (int i = 0; i < ListaFin.Count; i++)
+            {
+                if (ListaFin[i] != 0 && ListaFin[i] != null)
+                {
+                    ListaFinNueva.Add(i);
+                }
+            }
+            decimal? horaEventoMin = ListaFinNueva.Min();
+            
+            return horaEventoMin;
+        }
 
         // Eventos
         public void eventoInicial()
@@ -350,7 +382,7 @@ namespace Colas
 
             // Evento
             evento = "Evento Inicial";
-
+            
 
             // Reloj
             reloj = 0;
@@ -510,7 +542,7 @@ namespace Colas
             // Determinar el próximo evento
             if (cantidadDeSimulaciones != numeroSimulacionActual)
             {
-                string proxEvento = obtenerProximoEvento(proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
+                string proxEvento = obtenerProximoEvento(proximaLlegada,proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
     proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
 
                 if (proxEvento == "LL Auto")
@@ -546,7 +578,7 @@ namespace Colas
 
             // Nombres de las variables (una por cada columna)
             string evento;
-            decimal reloj;
+            decimal? reloj;
 
             decimal? rndLlegada;
             decimal? tiempoLlegada;
@@ -642,8 +674,14 @@ namespace Colas
             evento = "LL Auto";
 
 
-            // Reloj
-            reloj = Convert.ToDecimal(filaAnterior["reloj"]);
+            //reloj
+            reloj = obtenerHoraProxEvento(convertirADecimal(filaAnterior["proximaLlegada"]),convertirADecimal(filaAnterior["proximoFinAP1"]), convertirADecimal(filaAnterior["proximoFinAP2"]), convertirADecimal(filaAnterior["proximoFinAP3"]),
+                convertirADecimal(filaAnterior["proximoFinAP4"]), convertirADecimal(filaAnterior["proximoFinAP5"]), convertirADecimal(filaAnterior["proximoFinAE1"]),
+                convertirADecimal(filaAnterior["proximoFinAE2"]), convertirADecimal(filaAnterior["proximoFinAE3"]),
+                convertirADecimal(filaAnterior["proximoFinAE4"]), convertirADecimal(filaAnterior["proximoFinAE5"]), convertirADecimal(filaAnterior["proximoFinAE6"]),
+                convertirADecimal(filaAnterior["proximoFinAC1"]), convertirADecimal(filaAnterior["proximoFinAC2"]), convertirADecimal(filaAnterior["proximoFinAC3"]),
+                convertirADecimal(filaAnterior["proximoFinAC4"]),
+                convertirADecimal(filaAnterior["proximoFinACM"]));
 
 
             // Llegada auto
@@ -658,8 +696,8 @@ namespace Colas
             rndFinAP = generarRandom();
             tiempoFinAP = generarTiempoExponencial(rndFinAP, mediaAP);
 
-            proximoFinAP1 = Convert.ToDecimal(filaAnterior["proximoFinAP1"]);
-            proximoFinAP2 = Convert.ToDecimal(filaAnterior["proximoFinAP2"]);
+            proximoFinAP1 = convertirADecimal(filaAnterior["proximoFinAP1"]);
+            proximoFinAP2 = convertirADecimal(filaAnterior["proximoFinAP2"]);
             proximoFinAP3 = Convert.ToDecimal(filaAnterior["proximoFinAP3"]);
             proximoFinAP4 = Convert.ToDecimal(filaAnterior["proximoFinAP4"]);
             proximoFinAP5 = Convert.ToDecimal(filaAnterior["proximoFinAP5"]);
@@ -696,7 +734,7 @@ namespace Colas
 
             tiempoFinAE = null;
 
-            proximoFinAE1 = Convert.ToDecimal(filaAnterior["proximoFinAE1"]);
+            proximoFinAE1 = convertirADecimal(filaAnterior["proximoFinAE1"]);
             proximoFinAE2 = Convert.ToDecimal(filaAnterior["proximoFinAE2"]);
             proximoFinAE3 = Convert.ToDecimal(filaAnterior["proximoFinAE3"]);
             proximoFinAE4 = Convert.ToDecimal(filaAnterior["proximoFinAE4"]);
@@ -838,7 +876,8 @@ namespace Colas
             // Control comida mayores
             colaComidaMayores = Convert.ToInt32(filaAnterior["colaComidaMayores"]);
             estadoControlComidaMayores = filaAnterior["estadoControlComidaMayores"].ToString();
-
+           
+           
 
             // Estadísticas
             metrosPromedioNecesariosParaAparcamiento = Convert.ToDecimal(filaAnterior["cantidadPromedioAutosEnColaPark"]) * 4;
@@ -900,7 +939,7 @@ namespace Colas
             // Determinar el próximo evento
             if (cantidadDeSimulaciones != numeroSimulacionActual)
             {
-                string proxEvento = obtenerProximoEvento(proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
+                string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
 
                 if (proxEvento == "LL Auto")
@@ -933,7 +972,7 @@ namespace Colas
 
             // Nombres de las variables (una por cada columna)
             string evento;
-            decimal reloj;
+            decimal? reloj;
 
             decimal? rndLlegada;
             decimal? tiempoLlegada;
@@ -1026,35 +1065,42 @@ namespace Colas
 
             // Evento
             evento = "Fin AP";
-
+            //el reloj da null
             // Reloj
-            reloj = Convert.ToDecimal(filaAnterior["reloj"]);
+            reloj = obtenerHoraProxEvento(convertirADecimal(filaAnterior["proximaLlegada"]), convertirADecimal(filaAnterior["proximoFinAP1"]), convertirADecimal(filaAnterior["proximoFinAP2"]), convertirADecimal(filaAnterior["proximoFinAP3"]),
+                convertirADecimal(filaAnterior["proximoFinAP4"]), convertirADecimal(filaAnterior["proximoFinAP5"]), convertirADecimal(filaAnterior["proximoFinAE1"]),
+                convertirADecimal(filaAnterior["proximoFinAE2"]), convertirADecimal(filaAnterior["proximoFinAE3"]),
+                convertirADecimal(filaAnterior["proximoFinAE4"]), convertirADecimal(filaAnterior["proximoFinAE5"]), convertirADecimal(filaAnterior["proximoFinAE6"]),
+                convertirADecimal(filaAnterior["proximoFinAC1"]), convertirADecimal(filaAnterior["proximoFinAC2"]), convertirADecimal(filaAnterior["proximoFinAC3"]),
+                convertirADecimal(filaAnterior["proximoFinAC4"]),
+                convertirADecimal(filaAnterior["proximoFinACM"]));
+
 
             // Llegada auto
             rndLlegada = null;
 
             tiempoLlegada = null;
 
-            proximaLlegada = Convert.ToDecimal(filaAnterior["proximaLlegada"]);
+            proximaLlegada = convertirADecimal(filaAnterior["proximaLlegada"]);
 
 
             // Fin atención parking y Cajas Park
             rndFinAP = generarRandom();
             tiempoFinAP = generarTiempoExponencial(rndFinAP, mediaAP);
 
-            proximoFinAP1 = Convert.ToDecimal(filaAnterior["proximoFinAP1"]); //estaba el Convert.ToDecimal y nos daba error entonces lo cambiamos
-            proximoFinAP2 = Convert.ToDecimal(filaAnterior["proximoFinAP2"]);
-            proximoFinAP3 = Convert.ToDecimal(filaAnterior["proximoFinAP3"]);
-            proximoFinAP4 = Convert.ToDecimal(filaAnterior["proximoFinAP4"]);
-            proximoFinAP5 = Convert.ToDecimal(filaAnterior["proximoFinAP5"]);
-            
+            proximoFinAP1 = convertirADecimal(filaAnterior["proximoFinAP1"]); //estaba el Convert.ToDecimal y nos daba error entonces lo cambiamos
+            proximoFinAP2 = convertirADecimal(filaAnterior["proximoFinAP2"]);
+            proximoFinAP3 = convertirADecimal(filaAnterior["proximoFinAP3"]);
+            proximoFinAP4 = convertirADecimal(filaAnterior["proximoFinAP4"]);
+            proximoFinAP5 = convertirADecimal(filaAnterior["proximoFinAP5"]);
+
             //  Esta variable nos sirve para especificar cual fue el parking que llego a su fin
             // La usamos para dejar en orden cada evento.
             // Se utiliza mas abajo en Caja Park
             int finParking = 0;
 
             // Este indice se utiliza para encontrar el nuestra list, el auto que sale del parking
-            int indiceEncontrado = 0;
+            int indiceEncontrado = -1; //CHEQUEAR ESTO PORQUE ESTABA EN CERO Y NOS DABA ERROR, LO CAMBIAMOS A MENOS UNO Y NO SE, SALIÓ EL ERROR
 
             if (proximoFinAP1 == reloj)
             {
@@ -1075,7 +1121,11 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if(indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
+                   
 
                     // Recorro y cambio el estado de Encola a SiendoAtendido
                     foreach (DataGridViewRow fila in grdAutos.Rows)
@@ -1092,6 +1142,7 @@ namespace Colas
                 {
                     proximoFinAP1 = null;
                     estadoCajaPark1 = "Libre";
+                    
                     // Recorremos la grid para encontrar el indice del auto
                     for (int i = 0; i < grdAutos.Rows.Count; i++)
                     {
@@ -1104,7 +1155,12 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
+
                 }
             }
             else if (proximoFinAP2 == reloj)
@@ -1126,7 +1182,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
 
                     // Recorro y cambio el estado de Encola a SiendoAtendido
                     foreach (DataGridViewRow fila in grdAutos.Rows)
@@ -1154,7 +1213,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
                 }
             }
             else if (proximoFinAP3 == reloj)
@@ -1175,7 +1237,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
 
                     // Recorro y cambio el estado de Encola a SiendoAtendido
                     foreach (DataGridViewRow fila in grdAutos.Rows)
@@ -1205,7 +1270,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
 
 
                 }
@@ -1229,7 +1297,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
 
                     // Recorro y cambio el estado de Encola a SiendoAtendido
                     foreach (DataGridViewRow fila in grdAutos.Rows)
@@ -1259,7 +1330,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
                 }
             }
             else if (proximoFinAP5 == reloj)
@@ -1281,7 +1355,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
 
                     // Recorro y cambio el estado de Encola a SiendoAtendido
                     foreach (DataGridViewRow fila in grdAutos.Rows)
@@ -1310,7 +1387,10 @@ namespace Colas
                     }
 
                     // Elimino el objeto
-                    grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    if (indiceEncontrado != -1)
+                    {
+                        grdAutos.Rows.RemoveAt(indiceEncontrado);
+                    }
                 }
             }
 
@@ -1319,12 +1399,12 @@ namespace Colas
 
             tiempoFinAE = null;
 
-            proximoFinAE1 = Convert.ToDecimal(filaAnterior["proximoFinAE1"]);
-            proximoFinAE2 = Convert.ToDecimal(filaAnterior["proximoFinAE2"]);
-            proximoFinAE3 = Convert.ToDecimal(filaAnterior["proximoFinAE3"]);
-            proximoFinAE4 = Convert.ToDecimal(filaAnterior["proximoFinAE4"]);
-            proximoFinAE5 = Convert.ToDecimal(filaAnterior["proximoFinAE5"]);
-            proximoFinAE6 = Convert.ToDecimal(filaAnterior["proximoFinAE6"]);
+            proximoFinAE1 = convertirADecimal(filaAnterior["proximoFinAE1"]);
+            proximoFinAE2 = convertirADecimal(filaAnterior["proximoFinAE2"]);
+            proximoFinAE3 = convertirADecimal(filaAnterior["proximoFinAE3"]);
+            proximoFinAE4 = convertirADecimal(filaAnterior["proximoFinAE4"]);
+            proximoFinAE5 = convertirADecimal(filaAnterior["proximoFinAE5"]);
+            proximoFinAE6 = convertirADecimal(filaAnterior["proximoFinAE6"]);
 
             rndCantidadPersonas = null;
 
@@ -1494,12 +1574,12 @@ namespace Colas
 
 
             // Estadísticas
-            metrosPromedioNecesariosParaAparcamiento = Convert.ToDecimal(filaAnterior["cantidadPromedioAutosEnColaPark"]) * 4;
-            acumuladorTiempoColaParking = (reloj - Convert.ToDecimal(filaAnterior["reloj"])) * (colaPark1 + colaPark2 + colaPark3 + colaPark4 + colaPark5) + Convert.ToDecimal(filaAnterior["acumuladorTiempoColaPark"]);
+            metrosPromedioNecesariosParaAparcamiento = convertirADecimal(filaAnterior["cantidadPromedioAutosEnColaPark"]) * 4;
+            acumuladorTiempoColaParking = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaPark1 + colaPark2 + colaPark3 + colaPark4 + colaPark5) + convertirADecimal(filaAnterior["acumuladorTiempoColaParking"]);
             cantidadPromedioAutosEnColaPark = acumuladorTiempoColaParking / reloj;
 
             contadorGruposCajaEntrada = Convert.ToInt32(filaAnterior["contadorGruposCajaEntrada"]);
-            acumuladorTiempoColaEntrada = (reloj - Convert.ToDecimal(filaAnterior["reloj"])) * (colaEntrada1y2 + colaEntrada3y4 + colaEntrada5y6) + Convert.ToDecimal("acumuladorTiempoColaEntrada");
+            acumuladorTiempoColaEntrada = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaEntrada1y2 + colaEntrada3y4 + colaEntrada5y6) + Convert.ToDecimal("acumuladorTiempoColaEntrada");
             
             if (contadorGruposCajaEntrada == 0)
             {
@@ -1511,7 +1591,7 @@ namespace Colas
             }
 
             contadorPersonasEnControlComida = Convert.ToInt32(filaAnterior["contadorPersonasEnControlComida"]);
-            acumuladorTiempoColaComida = (reloj - Convert.ToDecimal(filaAnterior["reloj"])) * (colaComida1 + colaComida2 + colaComida3 + colaComida4 + colaComidaMayores) + Convert.ToDecimal("acumuladorTiempoColaComida");
+            acumuladorTiempoColaComida = (reloj - convertirADecimal(filaAnterior["reloj"])) * (colaComida1 + colaComida2 + colaComida3 + colaComida4 + colaComidaMayores) + Convert.ToDecimal("acumuladorTiempoColaComida");
             
             if (contadorGruposCajaEntrada == 0)
             {
@@ -1553,7 +1633,7 @@ namespace Colas
             // Determinar el próximo evento
             if (cantidadDeSimulaciones != numeroSimulacionActual)
             {
-                string proxEvento = obtenerProximoEvento(proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
+                string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
 
                 if (proxEvento == "LL Auto")
@@ -1587,7 +1667,7 @@ namespace Colas
 
             // Nombres de las variables (una por cada columna)
             string evento;
-            decimal reloj;
+            decimal? reloj;
 
             decimal? rndLlegada;
             decimal? tiempoLlegada;
@@ -1684,7 +1764,13 @@ namespace Colas
 
 
             // Reloj
-            reloj = Convert.ToDecimal(filaAnterior["reloj"]);
+            reloj = obtenerHoraProxEvento(convertirADecimal(filaAnterior["proximaLlegada"]), convertirADecimal(filaAnterior["proximoFinAP1"]), convertirADecimal(filaAnterior["proximoFinAP2"]), convertirADecimal(filaAnterior["proximoFinAP3"]),
+                   convertirADecimal(filaAnterior["proximoFinAP4"]), convertirADecimal(filaAnterior["proximoFinAP5"]), convertirADecimal(filaAnterior["proximoFinAE1"]),
+                   convertirADecimal(filaAnterior["proximoFinAE2"]), convertirADecimal(filaAnterior["proximoFinAE3"]),
+                   convertirADecimal(filaAnterior["proximoFinAE4"]), convertirADecimal(filaAnterior["proximoFinAE5"]), convertirADecimal(filaAnterior["proximoFinAE6"]),
+                   convertirADecimal(filaAnterior["proximoFinAC1"]), convertirADecimal(filaAnterior["proximoFinAC2"]), convertirADecimal(filaAnterior["proximoFinAC3"]),
+                   convertirADecimal(filaAnterior["proximoFinAC4"]),
+                   convertirADecimal(filaAnterior["proximoFinACM"]));
 
 
             // Llegada auto
@@ -2226,7 +2312,7 @@ namespace Colas
             // Determinar el próximo evento
             if (cantidadDeSimulaciones != numeroSimulacionActual)
             {
-                string proxEvento = obtenerProximoEvento(proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
+                string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
 
                 if (proxEvento == "LL Auto")
@@ -2260,7 +2346,7 @@ namespace Colas
 
             // Nombres de las variables (una por cada columna)
             string evento;
-            decimal reloj;
+            decimal? reloj;
 
             decimal? rndLlegada;
             decimal? tiempoLlegada;
@@ -2357,7 +2443,13 @@ namespace Colas
 
 
             // Reloj
-            reloj = Convert.ToDecimal(filaAnterior["reloj"]);
+            reloj = obtenerHoraProxEvento(convertirADecimal(filaAnterior["proximaLlegada"]), convertirADecimal(filaAnterior["proximoFinAP1"]), convertirADecimal(filaAnterior["proximoFinAP2"]), convertirADecimal(filaAnterior["proximoFinAP3"]),
+                 convertirADecimal(filaAnterior["proximoFinAP4"]), convertirADecimal(filaAnterior["proximoFinAP5"]), convertirADecimal(filaAnterior["proximoFinAE1"]),
+                 convertirADecimal(filaAnterior["proximoFinAE2"]), convertirADecimal(filaAnterior["proximoFinAE3"]),
+                 convertirADecimal(filaAnterior["proximoFinAE4"]), convertirADecimal(filaAnterior["proximoFinAE5"]), convertirADecimal(filaAnterior["proximoFinAE6"]),
+                 convertirADecimal(filaAnterior["proximoFinAC1"]), convertirADecimal(filaAnterior["proximoFinAC2"]), convertirADecimal(filaAnterior["proximoFinAC3"]),
+                 convertirADecimal(filaAnterior["proximoFinAC4"]),
+                 convertirADecimal(filaAnterior["proximoFinACM"]));
 
 
             // Llegada auto
@@ -2740,7 +2832,7 @@ namespace Colas
             // Determinar el próximo evento
             if (cantidadDeSimulaciones != numeroSimulacionActual)
             {
-                string proxEvento = obtenerProximoEvento(proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
+                string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
 
                 if (proxEvento == "LL Auto")
@@ -2775,7 +2867,7 @@ namespace Colas
 
             // Nombres de las variables (una por cada columna)
             string evento;
-            decimal reloj;
+            decimal? reloj;
 
             decimal? rndLlegada;
             decimal? tiempoLlegada;
@@ -2872,7 +2964,14 @@ namespace Colas
 
 
             // Reloj
-            reloj = Convert.ToDecimal(filaAnterior["reloj"]);
+            reloj = obtenerHoraProxEvento(convertirADecimal(filaAnterior["proximaLlegada"]), convertirADecimal(filaAnterior["proximoFinAP1"]), convertirADecimal(filaAnterior["proximoFinAP2"]), convertirADecimal(filaAnterior["proximoFinAP3"]),
+               convertirADecimal(filaAnterior["proximoFinAP4"]), convertirADecimal(filaAnterior["proximoFinAP5"]), convertirADecimal(filaAnterior["proximoFinAE1"]),
+               convertirADecimal(filaAnterior["proximoFinAE2"]), convertirADecimal(filaAnterior["proximoFinAE3"]),
+               convertirADecimal(filaAnterior["proximoFinAE4"]), convertirADecimal(filaAnterior["proximoFinAE5"]), convertirADecimal(filaAnterior["proximoFinAE6"]),
+               convertirADecimal(filaAnterior["proximoFinAC1"]), convertirADecimal(filaAnterior["proximoFinAC2"]), convertirADecimal(filaAnterior["proximoFinAC3"]),
+               convertirADecimal(filaAnterior["proximoFinAC4"]),
+               convertirADecimal(filaAnterior["proximoFinACM"]));
+
 
 
             // Llegada auto
@@ -3085,7 +3184,7 @@ namespace Colas
             // Determinar el próximo evento
             if (cantidadDeSimulaciones != numeroSimulacionActual)
             {
-                string proxEvento = obtenerProximoEvento(proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
+                string proxEvento = obtenerProximoEvento(proximaLlegada, proximoFinAP1, proximoFinAP2, proximoFinAP3, proximoFinAP4, proximoFinAP5, proximoFinAE1, proximoFinAE2, proximoFinAE3, proximoFinAE4, proximoFinAE5, proximoFinAE6,
                 proximoFinAC1, proximoFinAC2, proximoFinAC3, proximoFinAC4, proximoFinACM);
 
                 if (proxEvento == "LL Auto")
