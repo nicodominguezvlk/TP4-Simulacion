@@ -28,13 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTitulo = new System.Windows.Forms.Panel();
+            this.picArrow = new System.Windows.Forms.PictureBox();
+            this.picX = new System.Windows.Forms.PictureBox();
             this.imgArrow = new System.Windows.Forms.PictureBox();
             this.imgX = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grdSimulacion = new System.Windows.Forms.DataGridView();
+            this.btnObjetosTemporales = new System.Windows.Forms.Button();
+            this.btnInformación = new System.Windows.Forms.Button();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabSimulacion = new System.Windows.Forms.TabPage();
+            this.tabTemporales = new System.Windows.Forms.TabPage();
+            this.lblPersonasMayores = new System.Windows.Forms.Label();
+            this.grdPersonasMayores = new System.Windows.Forms.DataGridView();
+            this.estadoPersonaMayor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPersonas = new System.Windows.Forms.Label();
+            this.grdPersonas = new System.Windows.Forms.DataGridView();
+            this.estadoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblGrupos = new System.Windows.Forms.Label();
+            this.grdGrupos = new System.Windows.Forms.DataGridView();
+            this.estadoGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblAutos = new System.Windows.Forms.Label();
+            this.grdAutos = new System.Windows.Forms.DataGridView();
+            this.estadoAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +77,8 @@
             this.rndCantidadPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndCantidadMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadPersonasMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadPersonasNoMayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndFinCC1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoFinCC1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proximoFinCC1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,26 +135,9 @@
             this.tiempoConseguirEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadPromedioGenteColaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoEntradaDespuesEstacionar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnObjetosTemporales = new System.Windows.Forms.Button();
-            this.btnInformación = new System.Windows.Forms.Button();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabSimulacion = new System.Windows.Forms.TabPage();
-            this.tabTemporales = new System.Windows.Forms.TabPage();
-            this.lblPersonasMayores = new System.Windows.Forms.Label();
-            this.grdPersonasMayores = new System.Windows.Forms.DataGridView();
-            this.estadoPersonaMayor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblPersonas = new System.Windows.Forms.Label();
-            this.grdPersonas = new System.Windows.Forms.DataGridView();
-            this.estadoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblGrupos = new System.Windows.Forms.Label();
-            this.grdGrupos = new System.Windows.Forms.DataGridView();
-            this.estadoGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblAutos = new System.Windows.Forms.Label();
-            this.grdAutos = new System.Windows.Forms.DataGridView();
-            this.estadoAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.picX = new System.Windows.Forms.PictureBox();
-            this.picArrow = new System.Windows.Forms.PictureBox();
             this.pnlTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSimulacion)).BeginInit();
@@ -145,8 +148,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -162,6 +163,30 @@
             this.pnlTitulo.Name = "pnlTitulo";
             this.pnlTitulo.Size = new System.Drawing.Size(1080, 90);
             this.pnlTitulo.TabIndex = 3;
+            // 
+            // picArrow
+            // 
+            this.picArrow.BackgroundImage = global::Colas.Properties.Resources.Arrow2;
+            this.picArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picArrow.Location = new System.Drawing.Point(932, 11);
+            this.picArrow.Name = "picArrow";
+            this.picArrow.Size = new System.Drawing.Size(65, 65);
+            this.picArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picArrow.TabIndex = 4;
+            this.picArrow.TabStop = false;
+            this.picArrow.Click += new System.EventHandler(this.picArrow_Click);
+            // 
+            // picX
+            // 
+            this.picX.BackgroundImage = global::Colas.Properties.Resources.X2;
+            this.picX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picX.Location = new System.Drawing.Point(1003, 11);
+            this.picX.Name = "picX";
+            this.picX.Size = new System.Drawing.Size(65, 65);
+            this.picX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picX.TabIndex = 3;
+            this.picX.TabStop = false;
+            this.picX.Click += new System.EventHandler(this.picX_Click);
             // 
             // imgArrow
             // 
@@ -199,14 +224,14 @@
             this.grdSimulacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.grdSimulacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdSimulacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdSimulacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdSimulacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdSimulacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdSimulacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
@@ -232,7 +257,8 @@
             this.rndCantidadPersonas,
             this.cantidadPersonas,
             this.rndCantidadMayores,
-            this.Column3,
+            this.cantidadPersonasMayores,
+            this.cantidadPersonasNoMayores,
             this.rndFinCC1,
             this.tiempoFinCC1,
             this.proximoFinCC1,
@@ -289,14 +315,14 @@
             this.tiempoConseguirEntrada,
             this.cantidadPromedioGenteColaEntrada,
             this.tiempoEntradaDespuesEstacionar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdSimulacion.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdSimulacion.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdSimulacion.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.grdSimulacion.Location = new System.Drawing.Point(0, 0);
             this.grdSimulacion.Name = "grdSimulacion";
@@ -304,6 +330,194 @@
             this.grdSimulacion.RowHeadersWidth = 51;
             this.grdSimulacion.Size = new System.Drawing.Size(1072, 419);
             this.grdSimulacion.TabIndex = 4;
+            // 
+            // btnObjetosTemporales
+            // 
+            this.btnObjetosTemporales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(217)))), ((int)(((byte)(130)))));
+            this.btnObjetosTemporales.FlatAppearance.BorderSize = 0;
+            this.btnObjetosTemporales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnObjetosTemporales.Font = new System.Drawing.Font("Microsoft Tai Le", 18F);
+            this.btnObjetosTemporales.ForeColor = System.Drawing.Color.White;
+            this.btnObjetosTemporales.Location = new System.Drawing.Point(550, 633);
+            this.btnObjetosTemporales.Name = "btnObjetosTemporales";
+            this.btnObjetosTemporales.Size = new System.Drawing.Size(708, 39);
+            this.btnObjetosTemporales.TabIndex = 8;
+            this.btnObjetosTemporales.Text = "Ver objetos temporales";
+            this.btnObjetosTemporales.UseVisualStyleBackColor = false;
+            // 
+            // btnInformación
+            // 
+            this.btnInformación.BackColor = System.Drawing.Color.Tomato;
+            this.btnInformación.FlatAppearance.BorderSize = 0;
+            this.btnInformación.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInformación.Font = new System.Drawing.Font("Microsoft Tai Le", 18F);
+            this.btnInformación.ForeColor = System.Drawing.Color.White;
+            this.btnInformación.Location = new System.Drawing.Point(200, 547);
+            this.btnInformación.Name = "btnInformación";
+            this.btnInformación.Size = new System.Drawing.Size(708, 39);
+            this.btnInformación.TabIndex = 9;
+            this.btnInformación.Text = "Ver información";
+            this.btnInformación.UseVisualStyleBackColor = false;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabSimulacion);
+            this.tabControl.Controls.Add(this.tabTemporales);
+            this.tabControl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl.Location = new System.Drawing.Point(0, 96);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1080, 445);
+            this.tabControl.TabIndex = 10;
+            // 
+            // tabSimulacion
+            // 
+            this.tabSimulacion.Controls.Add(this.grdSimulacion);
+            this.tabSimulacion.Location = new System.Drawing.Point(4, 26);
+            this.tabSimulacion.Name = "tabSimulacion";
+            this.tabSimulacion.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSimulacion.Size = new System.Drawing.Size(1072, 415);
+            this.tabSimulacion.TabIndex = 0;
+            this.tabSimulacion.Text = "Simulación";
+            this.tabSimulacion.UseVisualStyleBackColor = true;
+            // 
+            // tabTemporales
+            // 
+            this.tabTemporales.Controls.Add(this.lblPersonasMayores);
+            this.tabTemporales.Controls.Add(this.grdPersonasMayores);
+            this.tabTemporales.Controls.Add(this.lblPersonas);
+            this.tabTemporales.Controls.Add(this.grdPersonas);
+            this.tabTemporales.Controls.Add(this.lblGrupos);
+            this.tabTemporales.Controls.Add(this.grdGrupos);
+            this.tabTemporales.Controls.Add(this.lblAutos);
+            this.tabTemporales.Controls.Add(this.grdAutos);
+            this.tabTemporales.Location = new System.Drawing.Point(4, 26);
+            this.tabTemporales.Name = "tabTemporales";
+            this.tabTemporales.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTemporales.Size = new System.Drawing.Size(1072, 415);
+            this.tabTemporales.TabIndex = 1;
+            this.tabTemporales.Text = "Objetos Temporales";
+            this.tabTemporales.UseVisualStyleBackColor = true;
+            // 
+            // lblPersonasMayores
+            // 
+            this.lblPersonasMayores.AutoSize = true;
+            this.lblPersonasMayores.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonasMayores.Location = new System.Drawing.Point(838, 18);
+            this.lblPersonasMayores.Name = "lblPersonasMayores";
+            this.lblPersonasMayores.Size = new System.Drawing.Size(210, 30);
+            this.lblPersonasMayores.TabIndex = 7;
+            this.lblPersonasMayores.Text = "Personas mayores";
+            // 
+            // grdPersonasMayores
+            // 
+            this.grdPersonasMayores.AllowUserToAddRows = false;
+            this.grdPersonasMayores.AllowUserToDeleteRows = false;
+            this.grdPersonasMayores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdPersonasMayores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estadoPersonaMayor});
+            this.grdPersonasMayores.Location = new System.Drawing.Point(804, 62);
+            this.grdPersonasMayores.Name = "grdPersonasMayores";
+            this.grdPersonasMayores.ReadOnly = true;
+            this.grdPersonasMayores.Size = new System.Drawing.Size(268, 353);
+            this.grdPersonasMayores.TabIndex = 6;
+            // 
+            // estadoPersonaMayor
+            // 
+            this.estadoPersonaMayor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estadoPersonaMayor.HeaderText = "Estado";
+            this.estadoPersonaMayor.Name = "estadoPersonaMayor";
+            this.estadoPersonaMayor.ReadOnly = true;
+            // 
+            // lblPersonas
+            // 
+            this.lblPersonas.AutoSize = true;
+            this.lblPersonas.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonas.Location = new System.Drawing.Point(618, 18);
+            this.lblPersonas.Name = "lblPersonas";
+            this.lblPersonas.Size = new System.Drawing.Size(110, 30);
+            this.lblPersonas.TabIndex = 5;
+            this.lblPersonas.Text = "Personas";
+            // 
+            // grdPersonas
+            // 
+            this.grdPersonas.AllowUserToAddRows = false;
+            this.grdPersonas.AllowUserToDeleteRows = false;
+            this.grdPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estadoPersona});
+            this.grdPersonas.Location = new System.Drawing.Point(536, 62);
+            this.grdPersonas.Name = "grdPersonas";
+            this.grdPersonas.ReadOnly = true;
+            this.grdPersonas.Size = new System.Drawing.Size(269, 353);
+            this.grdPersonas.TabIndex = 4;
+            // 
+            // estadoPersona
+            // 
+            this.estadoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estadoPersona.HeaderText = "Estado";
+            this.estadoPersona.Name = "estadoPersona";
+            this.estadoPersona.ReadOnly = true;
+            // 
+            // lblGrupos
+            // 
+            this.lblGrupos.AutoSize = true;
+            this.lblGrupos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupos.Location = new System.Drawing.Point(358, 18);
+            this.lblGrupos.Name = "lblGrupos";
+            this.lblGrupos.Size = new System.Drawing.Size(93, 30);
+            this.lblGrupos.TabIndex = 3;
+            this.lblGrupos.Text = "Grupos";
+            // 
+            // grdGrupos
+            // 
+            this.grdGrupos.AllowUserToAddRows = false;
+            this.grdGrupos.AllowUserToDeleteRows = false;
+            this.grdGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdGrupos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estadoGrupo});
+            this.grdGrupos.Location = new System.Drawing.Point(268, 62);
+            this.grdGrupos.Name = "grdGrupos";
+            this.grdGrupos.ReadOnly = true;
+            this.grdGrupos.Size = new System.Drawing.Size(269, 353);
+            this.grdGrupos.TabIndex = 2;
+            // 
+            // estadoGrupo
+            // 
+            this.estadoGrupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estadoGrupo.HeaderText = "Estado";
+            this.estadoGrupo.Name = "estadoGrupo";
+            this.estadoGrupo.ReadOnly = true;
+            // 
+            // lblAutos
+            // 
+            this.lblAutos.AutoSize = true;
+            this.lblAutos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutos.Location = new System.Drawing.Point(95, 18);
+            this.lblAutos.Name = "lblAutos";
+            this.lblAutos.Size = new System.Drawing.Size(76, 30);
+            this.lblAutos.TabIndex = 1;
+            this.lblAutos.Text = "Autos";
+            // 
+            // grdAutos
+            // 
+            this.grdAutos.AllowUserToAddRows = false;
+            this.grdAutos.AllowUserToDeleteRows = false;
+            this.grdAutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdAutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.estadoAuto});
+            this.grdAutos.Location = new System.Drawing.Point(0, 62);
+            this.grdAutos.Name = "grdAutos";
+            this.grdAutos.ReadOnly = true;
+            this.grdAutos.Size = new System.Drawing.Size(269, 353);
+            this.grdAutos.TabIndex = 0;
+            // 
+            // estadoAuto
+            // 
+            this.estadoAuto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estadoAuto.HeaderText = "Estado";
+            this.estadoAuto.Name = "estadoAuto";
+            this.estadoAuto.ReadOnly = true;
             // 
             // evento
             // 
@@ -506,13 +720,21 @@
             this.rndCantidadMayores.Name = "rndCantidadMayores";
             this.rndCantidadMayores.ReadOnly = true;
             // 
-            // Column3
+            // cantidadPersonasMayores
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column3.HeaderText = "Cantidad Mayores";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.cantidadPersonasMayores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cantidadPersonasMayores.DataPropertyName = "cantidadPersonasMayores";
+            this.cantidadPersonasMayores.HeaderText = "Cantidad Mayores";
+            this.cantidadPersonasMayores.MinimumWidth = 8;
+            this.cantidadPersonasMayores.Name = "cantidadPersonasMayores";
+            this.cantidadPersonasMayores.ReadOnly = true;
+            // 
+            // cantidadPersonasNoMayores
+            // 
+            this.cantidadPersonasNoMayores.DataPropertyName = "cantidadPersonasNoMayores";
+            this.cantidadPersonasNoMayores.HeaderText = "Cantidad No Mayores";
+            this.cantidadPersonasNoMayores.Name = "cantidadPersonasNoMayores";
+            this.cantidadPersonasNoMayores.ReadOnly = true;
             // 
             // rndFinCC1
             // 
@@ -1016,218 +1238,6 @@
             this.tiempoEntradaDespuesEstacionar.Name = "tiempoEntradaDespuesEstacionar";
             this.tiempoEntradaDespuesEstacionar.ReadOnly = true;
             // 
-            // btnObjetosTemporales
-            // 
-            this.btnObjetosTemporales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(217)))), ((int)(((byte)(130)))));
-            this.btnObjetosTemporales.FlatAppearance.BorderSize = 0;
-            this.btnObjetosTemporales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnObjetosTemporales.Font = new System.Drawing.Font("Microsoft Tai Le", 18F);
-            this.btnObjetosTemporales.ForeColor = System.Drawing.Color.White;
-            this.btnObjetosTemporales.Location = new System.Drawing.Point(550, 633);
-            this.btnObjetosTemporales.Name = "btnObjetosTemporales";
-            this.btnObjetosTemporales.Size = new System.Drawing.Size(708, 39);
-            this.btnObjetosTemporales.TabIndex = 8;
-            this.btnObjetosTemporales.Text = "Ver objetos temporales";
-            this.btnObjetosTemporales.UseVisualStyleBackColor = false;
-            // 
-            // btnInformación
-            // 
-            this.btnInformación.BackColor = System.Drawing.Color.Tomato;
-            this.btnInformación.FlatAppearance.BorderSize = 0;
-            this.btnInformación.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformación.Font = new System.Drawing.Font("Microsoft Tai Le", 18F);
-            this.btnInformación.ForeColor = System.Drawing.Color.White;
-            this.btnInformación.Location = new System.Drawing.Point(200, 547);
-            this.btnInformación.Name = "btnInformación";
-            this.btnInformación.Size = new System.Drawing.Size(708, 39);
-            this.btnInformación.TabIndex = 9;
-            this.btnInformación.Text = "Ver información";
-            this.btnInformación.UseVisualStyleBackColor = false;
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabSimulacion);
-            this.tabControl.Controls.Add(this.tabTemporales);
-            this.tabControl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(0, 96);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1080, 445);
-            this.tabControl.TabIndex = 10;
-            // 
-            // tabSimulacion
-            // 
-            this.tabSimulacion.Controls.Add(this.grdSimulacion);
-            this.tabSimulacion.Location = new System.Drawing.Point(4, 26);
-            this.tabSimulacion.Name = "tabSimulacion";
-            this.tabSimulacion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSimulacion.Size = new System.Drawing.Size(1072, 415);
-            this.tabSimulacion.TabIndex = 0;
-            this.tabSimulacion.Text = "Simulación";
-            this.tabSimulacion.UseVisualStyleBackColor = true;
-            // 
-            // tabTemporales
-            // 
-            this.tabTemporales.Controls.Add(this.lblPersonasMayores);
-            this.tabTemporales.Controls.Add(this.grdPersonasMayores);
-            this.tabTemporales.Controls.Add(this.lblPersonas);
-            this.tabTemporales.Controls.Add(this.grdPersonas);
-            this.tabTemporales.Controls.Add(this.lblGrupos);
-            this.tabTemporales.Controls.Add(this.grdGrupos);
-            this.tabTemporales.Controls.Add(this.lblAutos);
-            this.tabTemporales.Controls.Add(this.grdAutos);
-            this.tabTemporales.Location = new System.Drawing.Point(4, 26);
-            this.tabTemporales.Name = "tabTemporales";
-            this.tabTemporales.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTemporales.Size = new System.Drawing.Size(1072, 415);
-            this.tabTemporales.TabIndex = 1;
-            this.tabTemporales.Text = "Objetos Temporales";
-            this.tabTemporales.UseVisualStyleBackColor = true;
-            // 
-            // lblPersonasMayores
-            // 
-            this.lblPersonasMayores.AutoSize = true;
-            this.lblPersonasMayores.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonasMayores.Location = new System.Drawing.Point(838, 18);
-            this.lblPersonasMayores.Name = "lblPersonasMayores";
-            this.lblPersonasMayores.Size = new System.Drawing.Size(210, 30);
-            this.lblPersonasMayores.TabIndex = 7;
-            this.lblPersonasMayores.Text = "Personas mayores";
-            // 
-            // grdPersonasMayores
-            // 
-            this.grdPersonasMayores.AllowUserToAddRows = false;
-            this.grdPersonasMayores.AllowUserToDeleteRows = false;
-            this.grdPersonasMayores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdPersonasMayores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.estadoPersonaMayor});
-            this.grdPersonasMayores.Location = new System.Drawing.Point(804, 62);
-            this.grdPersonasMayores.Name = "grdPersonasMayores";
-            this.grdPersonasMayores.ReadOnly = true;
-            this.grdPersonasMayores.Size = new System.Drawing.Size(268, 353);
-            this.grdPersonasMayores.TabIndex = 6;
-            // 
-            // estadoPersonaMayor
-            // 
-            this.estadoPersonaMayor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estadoPersonaMayor.HeaderText = "Estado";
-            this.estadoPersonaMayor.Name = "estadoPersonaMayor";
-            this.estadoPersonaMayor.ReadOnly = true;
-            // 
-            // lblPersonas
-            // 
-            this.lblPersonas.AutoSize = true;
-            this.lblPersonas.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonas.Location = new System.Drawing.Point(618, 18);
-            this.lblPersonas.Name = "lblPersonas";
-            this.lblPersonas.Size = new System.Drawing.Size(110, 30);
-            this.lblPersonas.TabIndex = 5;
-            this.lblPersonas.Text = "Personas";
-            // 
-            // grdPersonas
-            // 
-            this.grdPersonas.AllowUserToAddRows = false;
-            this.grdPersonas.AllowUserToDeleteRows = false;
-            this.grdPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.estadoPersona});
-            this.grdPersonas.Location = new System.Drawing.Point(536, 62);
-            this.grdPersonas.Name = "grdPersonas";
-            this.grdPersonas.ReadOnly = true;
-            this.grdPersonas.Size = new System.Drawing.Size(269, 353);
-            this.grdPersonas.TabIndex = 4;
-            // 
-            // estadoPersona
-            // 
-            this.estadoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estadoPersona.HeaderText = "Estado";
-            this.estadoPersona.Name = "estadoPersona";
-            this.estadoPersona.ReadOnly = true;
-            // 
-            // lblGrupos
-            // 
-            this.lblGrupos.AutoSize = true;
-            this.lblGrupos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupos.Location = new System.Drawing.Point(358, 18);
-            this.lblGrupos.Name = "lblGrupos";
-            this.lblGrupos.Size = new System.Drawing.Size(93, 30);
-            this.lblGrupos.TabIndex = 3;
-            this.lblGrupos.Text = "Grupos";
-            // 
-            // grdGrupos
-            // 
-            this.grdGrupos.AllowUserToAddRows = false;
-            this.grdGrupos.AllowUserToDeleteRows = false;
-            this.grdGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdGrupos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.estadoGrupo});
-            this.grdGrupos.Location = new System.Drawing.Point(268, 62);
-            this.grdGrupos.Name = "grdGrupos";
-            this.grdGrupos.ReadOnly = true;
-            this.grdGrupos.Size = new System.Drawing.Size(269, 353);
-            this.grdGrupos.TabIndex = 2;
-            // 
-            // estadoGrupo
-            // 
-            this.estadoGrupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estadoGrupo.HeaderText = "Estado";
-            this.estadoGrupo.Name = "estadoGrupo";
-            this.estadoGrupo.ReadOnly = true;
-            // 
-            // lblAutos
-            // 
-            this.lblAutos.AutoSize = true;
-            this.lblAutos.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAutos.Location = new System.Drawing.Point(95, 18);
-            this.lblAutos.Name = "lblAutos";
-            this.lblAutos.Size = new System.Drawing.Size(76, 30);
-            this.lblAutos.TabIndex = 1;
-            this.lblAutos.Text = "Autos";
-            // 
-            // grdAutos
-            // 
-            this.grdAutos.AllowUserToAddRows = false;
-            this.grdAutos.AllowUserToDeleteRows = false;
-            this.grdAutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdAutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.estadoAuto});
-            this.grdAutos.Location = new System.Drawing.Point(0, 62);
-            this.grdAutos.Name = "grdAutos";
-            this.grdAutos.ReadOnly = true;
-            this.grdAutos.Size = new System.Drawing.Size(269, 353);
-            this.grdAutos.TabIndex = 0;
-            // 
-            // estadoAuto
-            // 
-            this.estadoAuto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.estadoAuto.HeaderText = "Estado";
-            this.estadoAuto.Name = "estadoAuto";
-            this.estadoAuto.ReadOnly = true;
-            // 
-            // picX
-            // 
-            this.picX.BackgroundImage = global::Colas.Properties.Resources.X2;
-            this.picX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picX.Location = new System.Drawing.Point(1003, 11);
-            this.picX.Name = "picX";
-            this.picX.Size = new System.Drawing.Size(65, 65);
-            this.picX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picX.TabIndex = 3;
-            this.picX.TabStop = false;
-            this.picX.Click += new System.EventHandler(this.picX_Click);
-            // 
-            // picArrow
-            // 
-            this.picArrow.BackgroundImage = global::Colas.Properties.Resources.Arrow2;
-            this.picArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picArrow.Location = new System.Drawing.Point(932, 11);
-            this.picArrow.Name = "picArrow";
-            this.picArrow.Size = new System.Drawing.Size(65, 65);
-            this.picArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picArrow.TabIndex = 4;
-            this.picArrow.TabStop = false;
-            this.picArrow.Click += new System.EventHandler(this.picArrow_Click);
-            // 
             // Visualizador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1243,6 +1253,8 @@
             this.Text = "Form1";
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSimulacion)).EndInit();
@@ -1254,8 +1266,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdPersonas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrupos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picArrow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1268,6 +1278,24 @@
         private System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.DataGridView grdSimulacion;
         private System.Windows.Forms.Button btnObjetosTemporales;
+        private System.Windows.Forms.Button btnInformación;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabSimulacion;
+        private System.Windows.Forms.TabPage tabTemporales;
+        private System.Windows.Forms.Label lblPersonasMayores;
+        private System.Windows.Forms.DataGridView grdPersonasMayores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoPersonaMayor;
+        private System.Windows.Forms.Label lblPersonas;
+        private System.Windows.Forms.DataGridView grdPersonas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoPersona;
+        private System.Windows.Forms.Label lblGrupos;
+        private System.Windows.Forms.DataGridView grdGrupos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoGrupo;
+        private System.Windows.Forms.Label lblAutos;
+        private System.Windows.Forms.DataGridView grdAutos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoAuto;
+        private System.Windows.Forms.PictureBox picX;
+        private System.Windows.Forms.PictureBox picArrow;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndLlegada;
@@ -1291,7 +1319,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rndCantidadPersonas;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadPersonas;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndCantidadMayores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadPersonasMayores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadPersonasNoMayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndFinCC1;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoFinCC1;
         private System.Windows.Forms.DataGridViewTextBoxColumn proximoFinCC1;
@@ -1348,23 +1377,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoConseguirEntrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadPromedioGenteColaEntrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoEntradaDespuesEstacionar;
-        private System.Windows.Forms.Button btnInformación;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabSimulacion;
-        private System.Windows.Forms.TabPage tabTemporales;
-        private System.Windows.Forms.Label lblPersonasMayores;
-        private System.Windows.Forms.DataGridView grdPersonasMayores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoPersonaMayor;
-        private System.Windows.Forms.Label lblPersonas;
-        private System.Windows.Forms.DataGridView grdPersonas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoPersona;
-        private System.Windows.Forms.Label lblGrupos;
-        private System.Windows.Forms.DataGridView grdGrupos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoGrupo;
-        private System.Windows.Forms.Label lblAutos;
-        private System.Windows.Forms.DataGridView grdAutos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoAuto;
-        private System.Windows.Forms.PictureBox picX;
-        private System.Windows.Forms.PictureBox picArrow;
     }
 }
